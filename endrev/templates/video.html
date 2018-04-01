@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>C3 Video Preview Submission</title>
+        <meta charset="utf-8">
+        <meta property="og:title" content="C3 Video Preview Submission"/>
+        <meta property="og:description" content="Request a video preview for your custom!"/>
+        <meta property="og:url" content="http://endlessrenovation.com"/>
+        <link rel="shortcut icon" type="image/svg" href="{{ url_for('static', filename='avocado.ico') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/rb.css') }}"/>
+    </head>
+    <body class="form-style" id="form">
+        <h2>Kueller's Basic AF C3 Video Preview Submission Form</h2>
+
+        <form method="POST">
+            <label>Your Name / 君の名は:</label><br>
+            <input type="text" name="name-input"><br><br>
+
+            <label>Artist & Song:</label><br>
+            <input type="text" name="song-input"><br><br>
+
+            <label style="line-height: 1.3">
+                Vocal Gender:
+            </label><br>
+            <select name="gender-select">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select><br>
+            <label><small>Magma is binary therefore so am I.</small></label><br><br>
+
+            <label>Instruments Present / Wanted in Recording:</label><br>
+            <input type="checkbox" name="ck-gtr"><label>Guitar</label><br>
+            <input type="checkbox" name="ck-bass"><label>Bass</label><br>
+            <input type="checkbox" name="ck-drums"><label>Drums</label><br>
+            <input type="checkbox" name="ck-keys"><label>Keys</label><br>
+            <input type="checkbox" name="ck-vox"><label>Vocals</label><br><br>
+
+            <label>Preferred Venue Type:</label><br>
+            <select name="venue-select">
+                <option value="small">Small/Bar</option>
+                <option value="medium">Medium Venue</option>
+                <option value="large">Arena/Festival</option>
+                <option value="idgaf">IDGAF</option>
+            </select><br><br>
+
+            <label>Pro Instrument:</label><br>
+            <select name="pro-select">
+                <option value="keys">Pro Keys</option>
+                <option value="gtr">Pro Guitar</option>
+                <option value="bass">Pro Bass</option>
+                <option value="no">None</option>    
+            </select><br>
+            <div style="padding-top: 4px; line-height: 1">
+                <small>
+                    <b>One</b> of G/B/K can be shown as a pro chart.<br>
+                    Drums will always be pro if available.
+                </small><br><br>
+            </div>
+
+            <label>Download Link:</label><br>
+            <input type="text" name="dl-link"><br><br>
+
+            <label>Date Needed By:</label><br>
+            <input type="text" name="datepicker"><br><br>
+
+            <label>Other Comments:</label><br>
+            <input type="text" name="comments"><br><br>
+
+            <input type="submit" name="go" value="Submit."><br>
+
+            <label name="status" style="color:{{ statcolor }}">
+                {{ status }}
+            </label><br><br>
+        </form>
+
+        <div class="disclaimer">
+            <small>
+                Submissions will probably be processed in the order they are
+                submitted. Payments can be made in either currency themed emoji
+                or estrogen. For further inquiries please contact
+                kueller on C3. 🥑
+            </small>
+        </div>
+    </body>
+</html>

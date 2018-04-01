@@ -1,0 +1,43 @@
+.form-style {
+    margin: 15px;
+    max-width: 500px;
+    background: #ebf7ff;
+    font-size: 13px;
+    padding: 0px 15px;
+    line-height: 1.6;
+}
+
+.form-style input[type=submit] {
+    font-size: 19px;
+}
+
+
+h1,h2,h3
+{
+    line-height:1.2
+    
+}
+
+.disclaimer {
+    position: relative;
+    bottom: 5px;
+    line-height: 1;
+    max-width: 450px;
+    z-index: -1;
+}
+
+.ui-datepicker {
+    background: #e1e1e1;
+}
+
+.ui-datepicker-title {
+    text-align: center;
+}
+
+.ui-datepicker-prev {
+    float: left;
+}
+
+.ui-datepicker-next {
+    float: right;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>Hyphenator 2: Judgement Day</title>
+	<meta charset="utf-8">
+    <meta property="og:title" content="Hyphenator 2: Judgement Day"/>
+    <meta property="og:description" content="Lyric hyphenator for C3."/>
+    <meta property="og:url" content="http://endlessrenovation.com"/>
+    <link rel="shortcut icon" type="image/svg" href="{{ url_for('static', filename='avocado.ico') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/rb.css') }}"/> 
+  </head>
+</head>
+
+<body class="form-style">
+  <form method="POST">
+	<p>Post lyrics below:</p>
+	<textarea rows="10" cols="50" name="lyrics">{{ new_lyrics }}</textarea><br><br>
+	<input type="submit" name="submit" value="Convert!"><br><br><br>
+  </form>
+
+  <form method="POST">
+	<p>
+	  Suggest a new updated word (write the word and the hyphenation)<br>
+	  Please only one word per submission.
+	</p>
+
+	<textarea rows="3" cols="35" name="suggest"></textarea><br><br>
+	<input type="submit" name="new_word" value="Submit."><br><br>
+  </form>
+</body>
