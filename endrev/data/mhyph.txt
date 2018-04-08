@@ -1521,6 +1521,7 @@ ad¥ver¥tiz¥ing
 ad¥ve¥na
 ad¥ve¥nae
 ad¥vice
+ad¥verts
 ad¥vise
 ad¥vised
 ad¥vise¥ment
@@ -12359,6 +12360,7 @@ Baf¥fin
 Baf¥fin Bay
 Baf¥fin Is¥land
 baf¥fle
+baf¥fled
 baf¥fler
 baf¥fle¥ment
 baf¥fle¥plate
@@ -31728,6 +31730,7 @@ con¥sist¥en¥cy
 con¥sis¥to¥ri¥al
 con¥sis¥to¥ry
 con¥sol
+con¥sists
 con¥sole
 con¥sole ta¥ble
 con¥soled
@@ -55451,6 +55454,7 @@ fin¥ger¥less
 fin¥ger¥ling
 fin¥ger¥mark
 fin¥ger¥nail
+fin¥ger¥nails
 fin¥ger¥print
 fin¥ger¥stall
 fin¥ger¥tip
@@ -55508,6 +55512,7 @@ fip¥ple
 fip¥ple flute
 fir
 fire
+fi¥re
 fire a¥larm
 fire a¥way
 fire bri¥gade
@@ -57673,6 +57678,7 @@ For¥mo¥sa
 For¥mo¥sa Strait
 For¥mo¥sus
 for¥mu¥la
+for¥mu¥lae
 for¥mu¥lar¥ies
 for¥mu¥lar¥ise
 for¥mu¥lar¥ised
@@ -67745,6 +67751,7 @@ heart-search¥ing
 heart-strick¥en
 heart-warm¥ing
 heart-whole¥ness
+heart¥beats
 hearth
 hearth¥less
 hearth¥side
@@ -70915,6 +70922,7 @@ hotch¥potch
 hot¥bed
 hot¥box
 hot¥cha
+ho¥tels
 hot¥foot
 hot¥head
 hot¥head¥ed
@@ -72986,6 +72994,7 @@ hy¥phen¥at¥ed
 hy¥phen¥at¥ing
 hy¥phen¥a¥tion
 hy¥phen¥ic
+hy¥phen¥a¥tor
 hy¥phen¥ise
 hy¥phen¥ised
 hy¥phen¥is¥ing
@@ -77128,6 +77137,7 @@ in¥stru¥men¥tal¥i¥ty
 in¥stru¥men¥tal¥ly
 in¥stru¥men¥ta¥tion
 in¥sub¥or¥di¥nate
+in¥stru¥ments
 in¥sub¥or¥di¥nate¥ly
 in¥sub¥or¥di¥na¥tion
 in¥sub¥stan¥tial
@@ -84335,6 +84345,7 @@ Kud¥run
 kud¥zu
 Kuei¥chou
 Kuen¥lun
+kuel¥ler
 kuf¥fi¥eh
 Kuhn
 Kuh¥nau
@@ -86272,6 +86283,7 @@ leap¥ing
 Lear
 lear
 learn
+learned
 learnt
 learn¥a¥ble
 learn¥ed
@@ -90301,6 +90313,7 @@ ly¥ra vi¥ol
 ly¥rate
 ly¥rate¥ly
 ly¥rat¥ed
+lyr¥ics
 ly¥ri¥form
 Ly¥rus
 Ly¥san¥der
@@ -96707,6 +96720,7 @@ mi¥ra¥cid¥i¥a
 mi¥ra¥cid¥i¥al
 mi¥ra¥cid¥i¥um
 Mi¥ra¥flo¥res
+mi¥re
 mi¥ri
 Mi¥r—
 mi¥s
@@ -100393,6 +100407,7 @@ Ned¥da
 ned¥dy
 nee
 need
+need¥ed
 needs
 need¥er
 need¥fire
@@ -111033,6 +111048,7 @@ ov¥en¥like
 ov¥en¥ware
 ov¥en¥wood
 Ov¥id
+o¥ver¥threw
 ov¥i¥duct
 ov¥ule
 ov¥u¥late
@@ -130092,6 +130108,7 @@ py¥ra¥gra¥vure
 py¥ra¥nom¥e¥ter
 py¥ra¥zole
 py¥rene
+py¥re
 py¥ret¥ic
 Py¥rex
 py¥rex¥i¥a
@@ -132748,6 +132765,9 @@ read¥y-wit¥ted
 read¥y-wit¥ted¥ly
 read¥y-wit¥ted¥ness
 read¥y¥ing
+real¥ly
+real
+real¥ly
 realm
 ream
 ream¥er
@@ -140316,6 +140336,7 @@ Sag¥it¥ta¥ri¥i
 Sag¥it¥ta¥ri¥us
 Sag¥ue¥nay
 saice
+said
 said
 sail
 sail-o¥ver
@@ -163873,6 +163894,7 @@ to¥tip¥o¥tent
 to¥ti¥pal¥mate
 to¥ti¥pal¥ma¥tion
 to¥va¥rich
+touch
 to¥va¥risch
 to¥va¥rish
 To¥vey
@@ -179734,6 +179756,7 @@ Var¥gas
 Var¥gi¥nha
 var¥gue¥no
 var¥ied
+var¥i¥a¥tions
 var¥ied¥ly
 var¥ied¥ness
 var¥ie¥gate
@@ -182307,6 +182330,7 @@ Wal¥tham For¥est
 Wal¥tham¥stow
 Wal¥ther
 Wal¥ton
+Wa¥lu¥i¥gi
 Wal¥vis Bay
 wame
 wame¥fou

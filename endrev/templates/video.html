@@ -68,9 +68,20 @@
 
             <input type="submit" name="go" value="Submit."><br>
 
-            <label name="status" style="color:{{ statcolor }}">
-                {{ status }}
-            </label><br><br>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        {% if category == "error" %}
+                        <label name="status" style="color:red">
+                        {% elif category == "info" %}
+                        <label name="status" style="color:green">
+                        {% endif %}
+                        {{ message }}
+                        </label>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <br><br>
         </form>
 
         <div class="disclaimer">

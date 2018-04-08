@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>C3 Video Preview Upload Page</title>
+        <meta charset="utf-8">
+        <meta property="og:title" content="C3 Video Preview Upload Page"/>
+        <meta property="og:description" content="Preview recorders upload their finished vidoes here."/>
+        <meta property="og:url" content="http://endlessrenovation.com"/>
+        <link rel="shortcut icon" type="image/svg" href="{{ url_for('static', filename='avocado.ico') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/rb.css') }}"/>
+    </head>
+
+    <body class="form-style" id="form">
+        <h2>Upload your finished preview here:</h2>
+
+        <form method="POST" enctype=multipart/form-data>
+            <label>User Key:</label><br>
+            <input type="text" name="user-key"><br><br>
+
+            <label>Preview Case Code:</label><br>
+            <input type="text" name="case-code">
+            <input style="font-size: 13px" type="submit" value="Delete" name="clear">
+            <br><br>
+
+            <label>Preview Video File:</label><br>
+            <input type="file" name="file"><br><br>
+
+            <input type="submit" value="Upload" name="upload"><br>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        {% if category == "error" %}
+                        <label name="status" style="color:red">
+                        {% elif category == "info" %}
+                        <label name="status" style="color:green">
+                        {% endif %}
+                        {{ message }}
+                        </label><br><br>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </form>
+    </body>
+</html>

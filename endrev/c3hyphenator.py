@@ -56,7 +56,7 @@ def hyphenate(moby, word):
 
     return hyphenated
 
-def convert_lyrics(text, moby):
+def convert_lyrics(text, moby, atsign):
     language = 'en'
     lines = []
 
@@ -107,6 +107,8 @@ def convert_lyrics(text, moby):
         for w in line.split():
             tok.append(hyphenate(moby, w))
             
-        formatted += '@' + ' '.join(tok) + '\n'
+        formatted += ' '.join(tok) + '\n'
+        if atsign:
+            formatted = '@' + formatted
 
     return formatted 

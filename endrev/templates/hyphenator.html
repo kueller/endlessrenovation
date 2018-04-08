@@ -14,8 +14,19 @@
 <body class="form-style">
   <form method="POST">
 	<p>Post lyrics below:</p>
-	<textarea rows="10" cols="50" name="lyrics">{{ new_lyrics }}</textarea><br><br>
-	<input type="submit" name="submit" value="Convert!"><br><br><br>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <textarea rows="10" cols="50" name="lyrics">{{ message}}</textarea>
+            {% endfor %}
+        {% else %}
+            <textarea rows="10" cols="50" name="lyrics"></textarea>
+        {% endif %}
+    {% endwith %}
+    <br><br>
+	<input type="submit" name="submit" value="Convert!">
+    <input type="checkbox" name="no-at-sign"><label>Do not prepend @ to the start of each line.</label>
+    <br><br><br>
   </form>
 
   <form method="POST">
@@ -26,5 +37,6 @@
 
 	<textarea rows="3" cols="35" name="suggest"></textarea><br><br>
 	<input type="submit" name="new_word" value="Submit."><br><br>
+
   </form>
 </body>

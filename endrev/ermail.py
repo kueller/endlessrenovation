@@ -8,7 +8,10 @@ import mailinfo
 
 HASHFILE = "/var/www/endrev/endrev/data/mail.hash"
 
-def send(subject, body):
+def send(recipient, subject, body):
+    if recipient == "self":
+        recipient = mailinfo.USERNAME
+
     msg = "Subject: %s\n\n%s" % (subject, body)
     hash = hashlib.md5(msg).hexdigest()
 
@@ -25,9 +28,11 @@ def send(subject, body):
         mail = smtplib.SMTP_SSL(mailinfo.SERVER, mailinfo.PORT)
         mail.ehlo()
         mail.login(mailinfo.USERNAME, mailinfo.PASSWORD)
-        mail.sendmail(mailinfo.USERNAME, mailinfo.USERNAME, msg)
+        mail.sendmail(mailinfo.USERNAME, recipient, msg)
         mail.quit()
     except email.errors.MessageError:
+        return -1
+    except smtplib.SMTPRecipientsRefused:
         return -1
 
     try: 

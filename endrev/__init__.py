@@ -1,7 +1,8 @@
 import random
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, send_from_directory, flash
 
 import ermail
+import c3videoupload
 from c3hyphenator import setup_moby, convert_lyrics
 from c3videosubmit import verify, format_email 
 
@@ -44,34 +45,77 @@ def text_page():
     if request.method == 'POST':
         if "submit" in request.form:
             text = request.form["lyrics"]
-            formatted = convert_lyrics(text, moby)
+            use_at = "no-at-sign" not in request.form
+            formatted = convert_lyrics(text, moby, use_at)
+            flash(formatted)
+            return redirect(url_for("text_page"))
         elif "new_word" in request.form:
             subject = "NEW WORD SUBMISSION"
             body = request.form["suggest"]
-            ermail.send(subject, body)
-            redirect(url_for("text_page"))
+            ermail.send("self", subject, body)
+            return redirect(url_for("text_page"))
 
-    return render_template("hyphenator.html", new_lyrics=formatted)
+    return render_template("hyphenator.html")
 
 @app.route("/rb/submit", methods=["POST", "GET"])
 def video_submit():
-    status = ''
-    statcolor = "red"
     if request.method == 'POST':
         err, status = verify(request.form)
         if err == 0:
-            subject, body = format_email(request.form)
-            err = ermail.send(subject, body)
+            recipient, subject, body = format_email(request.form)
+            err = ermail.send(recipient, subject, body)
 
             if err >= 0: 
-                status = "Your submission has been processed."
-                statcolor = "green"
+                flash("Your submission has been processed.", "green")
             else: 
-                status = "An error occured trying to process your request."
+                flash("An error occured trying to process your request.", "error")
+        else:
+            flash(status, "error")
 
-        redirect(url_for("video_submit"))
+        return redirect(url_for("video_submit"))
 
-    return render_template("video.html", status=status, statcolor=statcolor)
+    return render_template("video.html")
+
+@app.route("/rb/upload", methods=["POST", "GET"])
+def video_upload():
+    if request.method == "POST":
+        if c3videoupload.authenticate_user(request.form["user-key"]):
+            key = request.form["user-key"]
+            case = request.form["case-code"]
+            if case.strip() == "":
+                flash("No case code entered.", "error")
+                return redirect(url_for("video_upload"))
+            if "clear" in request.form:
+                r = c3videoupload.remove_case(key, case)
+                if r == c3videoupload.ERR:
+                    flash("There was an error processing your request.", "error")
+                elif r ==  c3videoupload.NOTFOUND:
+                    flash("Case number did not match any video.", "error")
+                elif r == c3videoupload.SUCCESS:
+                    flash("Case removed succesfully.", "info")
+            if "upload" in request.form:
+                if "file" in request.files:
+                    r = c3videoupload.upload(key, request.files["file"], case)
+                    if r == c3videoupload.ERR:
+                        flash("There was an error processing your upload.")
+                    elif r == c3videoupload.NOTFOUND:
+                        flash("No file specified.", "error")
+                    elif r == c3videoupload.SUCCESS:
+                        cleanfile = c3videoupload.clean_filename(request.files["file"].filename)
+                        url = "http://endlessrenovation.com%s" % url_for("preview_file", filename=cleanfile)
+                        flash("Video uploaded succesfully at: %s" % url, "info")
+                else:
+                    flash("No file specified.", "error")
+        else:
+            flash("Invalid user key.", "error")
+
+        return redirect(url_for("video_upload"))
+
+    return render_template("upload.html")
+
+@app.route("/rb/preview/<filename>")
+def preview_file(filename):
+    return send_from_directory("/var/www/endrev/endrev/static/preview/", filename)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
