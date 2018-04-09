@@ -66,7 +66,7 @@ def video_submit():
             err = ermail.send(recipient, subject, body)
 
             if err >= 0: 
-                flash("Your submission has been processed.", "green")
+                flash("Your submission has been processed.", "info")
             else: 
                 flash("An error occured trying to process your request.", "error")
         else:
@@ -100,6 +100,8 @@ def video_upload():
                         flash("There was an error processing your upload.")
                     elif r == c3videoupload.NOTFOUND:
                         flash("No file specified.", "error")
+                    elif r == c3videoupload.EXISTS:
+                        flash("File with that name exists on the server already.", "error")
                     elif r == c3videoupload.SUCCESS:
                         cleanfile = c3videoupload.clean_filename(request.files["file"].filename)
                         url = "http://endlessrenovation.com%s" % url_for("preview_file", filename=cleanfile)

@@ -19,7 +19,7 @@ def verify(form):
     return [0, None]
 
 def new_case_code():
-    with open("/var/www/endrev/endrev/preview/preview.db", "r") as f:
+    with open("/var/www/endrev/endrev/static/preview/preview.db", "r") as f:
         text = f.read()
 
     if text.strip() != "":
@@ -46,21 +46,16 @@ def decide_recipient(instruments, game_type):
     valids = {}
 
     for user in users:
-        print(user)
         if "PRO-K" in instruments and users[user]["pro_gtr_only"]:
-            print("Error 1")
             continue
 
         if any(x in instruments for x in ("PRO-G", "PRO-B")) and users[user]["pro_key_only"]:
-            print("Error 2")
             continue
 
         if len([x for x in instruments if x.startswith("PRO")]) > users[user]["num_pro"]:
-            print("Error 3")
             continue
 
         if game_type != users[user]["game_type"]:
-            print("Error 4")
             continue
 
         valids[user] = users[user]

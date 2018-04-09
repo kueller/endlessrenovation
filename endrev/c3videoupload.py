@@ -6,6 +6,7 @@ from werkzeug.utils import secure_filename
 PREVIEW_PATH = "/var/www/endrev/endrev/static/preview"
 ERR = -1
 NOTFOUND = -2
+EXISTS = -3
 SUCCESS = 1
 
 def clean_filename(filename):
@@ -135,10 +136,14 @@ def upload(user_key, video, case):
         except IOError:
             return ERR
 
+    path = "%s/%s" % (PREVIEW_PATH, filename)
+    if os.path.isfile(path):
+        return EXISTS
+    
     r = add_case(case, filename)
     if r != SUCCESS: return r
 
-    video.save("%s/%s" % (PREVIEW_PATH, filename))
+    video.save(path)
     return SUCCESS
 
     
