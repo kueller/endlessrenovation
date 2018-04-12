@@ -12,10 +12,13 @@
 }
 
 
-h1,h2,h3
-{
-    line-height:1.2
-    
+h1,h2,h3 {
+    line-height:1.2;
+    color: #333333;
+}
+
+body {
+    color: #333333;
 }
 
 .disclaimer {

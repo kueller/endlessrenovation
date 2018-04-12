@@ -3,8 +3,9 @@
   <head>
 	<title>Hyphenator 2: Judgement Day</title>
 	<meta charset="utf-8">
-    <meta property="og:title" content="Hyphenator 2: Judgement Day"/>
+    <meta property="og:title" content="Rock Band Lyric Hyphenator"/>
     <meta property="og:description" content="Lyric hyphenator for C3."/>
+    <meta property="og:image" content="{{ url_for('static', filename='fi-re.jpg') }}"/>
     <meta property="og:url" content="http://endlessrenovation.com"/>
     <link rel="shortcut icon" type="image/svg" href="{{ url_for('static', filename='avocado.ico') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/rb.css') }}"/> 
@@ -12,6 +13,8 @@
 </head>
 
 <body class="form-style">
+    <h2>Kueller's Lyric Hyphenator</h2>
+
   <form method="POST">
 	<p>Post lyrics below:</p>
     {% with messages = get_flashed_messages() %}

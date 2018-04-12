@@ -10,7 +10,12 @@ HASHFILE = "/var/www/endrev/endrev/data/mail.hash"
 
 def send(recipient, subject, body):
     if recipient == "self":
-        recipient = mailinfo.USERNAME
+        recipient = mailinfo.ADMIN
+
+    intro = ("This is a message from the Task Request Automated Network "
+            "System. Please do not respond.")
+
+    body = "%s\n\n%s" % (intro, body)
 
     msg = "Subject: %s\n\n%s" % (subject, body)
     hash = hashlib.md5(msg).hexdigest()
