@@ -14088,6 +14088,7 @@ Ba¥thil¥da
 ba¥thom¥e¥ter
 ba¥thos
 Ba¥tho¥ni¥an
+bath¥tub's
 ba¥thym¥e¥ter
 ba¥thym¥e¥try
 ba¥tik
@@ -33152,6 +33153,7 @@ cor¥ru¥gat¥ing
 cor¥ru¥ga¥tion
 cor¥ru¥ga¥tor
 Cor¥ry
+cor¥rupts
 Cor¥rze
 cor¥sac
 cor¥sage
@@ -97297,6 +97299,7 @@ mon¥o¥gram
 mon¥o¥gram¥mat¥ic
 mon¥o¥graph
 mon¥o¥graph¥ic
+mon¥o¥graphed
 mon¥o¥graph¥i¥cal¥ly
 mon¥o¥gy¥noe¥cial
 mon¥o¥hull
@@ -132766,6 +132769,8 @@ read¥y-wit¥ted
 read¥y-wit¥ted¥ly
 read¥y-wit¥ted¥ness
 read¥y¥ing
+real¥ly
+real
 real¥ly
 real
 real¥ly
@@ -182186,6 +182191,7 @@ wait
 Waite
 wait¥er
 wait¥ewoman
+wait¥in'
 wait¥ing game
 wait¥ing list
 wait¥ing room
@@ -185164,6 +185170,7 @@ wish¥ful
 wish¥ful think¥ing
 wish¥ful¥ly
 wish¥ful¥ness
+wish¥ing
 wish¥y-wash¥i¥ly
 wish¥y-wash¥i¥ness
 wish¥y-wash¥y

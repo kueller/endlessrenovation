@@ -8,7 +8,6 @@ from c3videosubmit import verify, format_email
 
 app = Flask(__name__)
 app.url_map.strict_slashes = False
-app.secret_key = "no"
 
 moby = setup_moby("/var/www/endrev/endrev/data/mhyph.txt")
 

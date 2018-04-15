@@ -60,6 +60,8 @@ def convert_lyrics(text, moby, atsign):
     language = 'en'
     lines = []
 
+    start = '@' if atsign else ''
+
     # Preprocessing
     for line in text.split('\n'):
         if line.strip() == '':
@@ -107,8 +109,6 @@ def convert_lyrics(text, moby, atsign):
         for w in line.split():
             tok.append(hyphenate(moby, w))
             
-        formatted += ' '.join(tok) + '\n'
-        if atsign:
-            formatted = '@' + formatted
+        formatted += start + ' '.join(tok) + '\n'
 
     return formatted 
