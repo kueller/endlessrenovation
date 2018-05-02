@@ -16,7 +16,14 @@
     <h2>Kueller's Lyric Hyphenator</h2>
 
   <form method="POST">
-	<p>Post lyrics below:</p>
+	<p>
+    Post lyrics below: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span>
+        <select name="lang">
+            <option value="en">English</option>
+            <option value="jp">Romaji</option>
+        </select>
+    </p>
     {% with messages = get_flashed_messages() %}
         {% if messages %}
             {% for message in messages %}

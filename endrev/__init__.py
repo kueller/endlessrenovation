@@ -8,8 +8,12 @@ from c3videosubmit import verify, format_email
 
 app = Flask(__name__)
 app.url_map.strict_slashes = False
+#app.secret_key = "no"
 
-moby = setup_moby("/var/www/endrev/endrev/data/mhyph.txt")
+db_list = {
+        "en": "/var/www/endrev/endrev/data/mhyph.txt",
+        "jp": ""
+}
 
 with open("/var/www/endrev/endrev/data/lyrics", "r") as f:
     lyrics = f.read().split('\n')
@@ -46,7 +50,8 @@ def text_page():
         if "submit" in request.form:
             text = request.form["lyrics"]
             use_at = "no-at-sign" not in request.form
-            formatted = convert_lyrics(text, moby, use_at)
+            lang = request.form["lang"]
+            formatted = convert_lyrics(text, lang, use_at, db_list[lang])
             flash(formatted)
             return redirect(url_for("text_page"))
         elif "new_word" in request.form:

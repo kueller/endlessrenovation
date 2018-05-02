@@ -12,8 +12,10 @@ def send(recipient, subject, body):
     if recipient == "self":
         recipient = mailinfo.ADMIN
 
+    print(recipient)
+
     intro = ("This is a message from the Task Request Automated Network "
-            "System. Please do not respond.")
+            "System.")
 
     body = "%s\n\n%s" % (intro, body)
 
@@ -36,8 +38,10 @@ def send(recipient, subject, body):
         mail.sendmail(mailinfo.USERNAME, recipient, msg)
         mail.quit()
     except email.errors.MessageError:
+        print("Message Error")
         return -1
     except smtplib.SMTPRecipientsRefused:
+        print("SMTP Error")
         return -1
 
     try: 

@@ -1,7 +1,9 @@
 import sys
+import c3weebhyphens
 from num2words import num2words
 
 BAD_CHARS = ['.',',','(',')','[',']']
+num_langs = ['en']
 
 def setup_moby(moby_file):
     moby = {}
@@ -15,7 +17,13 @@ def setup_moby(moby_file):
 
     return moby
 
-def hyph_word(moby, word):
+def setup_db(lang, filename):
+    if lang == "en":
+        return setup_moby(filename)
+    else:
+        return None
+
+def hyph_word_en(moby, word):
     if word in moby:
         return '- '.join(moby[word])
     # This section preserves the casing of the original word
@@ -34,7 +42,15 @@ def hyph_word(moby, word):
 
     return word
 
-def hyphenate(moby, word):
+def hyph_word(moby, word, lang):
+    if lang == "en":
+        return hyph_word_en(moby, word)
+    elif lang == "jp":
+        return c3weebhyphens.hyphenate(word)
+    else:
+        return word
+
+def hyphenate(moby, word, lang):
     if not word[0].isalpha(): return word
     
     toedit = word
@@ -44,11 +60,11 @@ def hyphenate(moby, word):
         toedit = word[0:len(word)-1]
 
     if '=' not in toedit:
-        hyphenated = hyph_word(moby, word)
+        hyphenated = hyph_word(moby, word, lang)
     else:
         h_list = []
         for tok in toedit.split('='):
-            h_list.append(hyph_word(moby, tok))
+            h_list.append(hyph_word(moby, tok, lang))
         hyphenated = '= '.join(h_list)
 
     if word.endswith('='):
@@ -56,11 +72,12 @@ def hyphenate(moby, word):
 
     return hyphenated
 
-def convert_lyrics(text, moby, atsign):
-    language = 'en'
+def convert_lyrics(text, lang, atsign, db_filename):
     lines = []
 
     start = '@' if atsign else ''
+
+    moby = setup_db(lang, db_filename)
 
     # Preprocessing
     for line in text.split('\n'):
@@ -75,15 +92,19 @@ def convert_lyrics(text, moby, atsign):
             if w.isalpha():
                 tok.append(w)
                 continue
+
+            if lang not in num_langs:
+                tok.append(w)
+                continue
             
             try:
                 x = int(w)
-                n = num2words(x, lang=language)
+                n = num2words(x, lang=lang)
                 tok.append(n.replace('-', ' '))
             except ValueError:
                 try:
                     f = float(w)
-                    n = num2words(f, lang=language)
+                    n = num2words(f, lang=lang)
                     tok.append(n.replace('-',' '))
                 except ValueError:
                     tok.append(w)
@@ -107,7 +128,7 @@ def convert_lyrics(text, moby, atsign):
 
         tok = []
         for w in line.split():
-            tok.append(hyphenate(moby, w))
+            tok.append(hyphenate(moby, w, lang))
             
         formatted += start + ' '.join(tok) + '\n'
 
