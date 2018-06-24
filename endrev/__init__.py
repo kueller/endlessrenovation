@@ -55,8 +55,8 @@ def text_page():
             flash(formatted)
             return redirect(url_for("text_page"))
         elif "new_word" in request.form:
-            subject = "NEW WORD SUBMISSION"
-            body = request.form["suggest"]
+            subject = "NEW WORD SUBMISSION - Lyric Hyphenator"
+            body = "Suggestion:\n" + request.form["suggest"]
             ermail.send("self", subject, body)
             return redirect(url_for("text_page"))
 
@@ -91,26 +91,19 @@ def video_upload():
                 flash("No case code entered.", "error")
                 return redirect(url_for("video_upload"))
             if "clear" in request.form:
-                r = c3videoupload.remove_case(key, case)
-                if r == c3videoupload.ERR:
-                    flash("There was an error processing your request.", "error")
-                elif r ==  c3videoupload.NOTFOUND:
-                    flash("Case number did not match any video.", "error")
-                elif r == c3videoupload.SUCCESS:
-                    flash("Case removed succesfully.", "info")
+                r, status = c3videoupload.remove_case(key, case)
+                if r == c3videoupload.SUCCESS:
+                    flash(status, "info")
+                else:
+                    flash(status, "error")
             if "upload" in request.form:
                 if "file" in request.files:
-                    r = c3videoupload.upload(key, request.files["file"], case)
-                    if r == c3videoupload.ERR:
-                        flash("There was an error processing your upload.")
-                    elif r == c3videoupload.NOTFOUND:
-                        flash("No file specified.", "error")
-                    elif r == c3videoupload.EXISTS:
-                        flash("File with that name exists on the server already.", "error")
-                    elif r == c3videoupload.SUCCESS:
-                        cleanfile = c3videoupload.clean_filename(request.files["file"].filename)
-                        url = "http://endlessrenovation.com%s" % url_for("preview_file", filename=cleanfile)
-                        flash("Video uploaded succesfully at: %s" % url, "info")
+                    r, status = c3videoupload.upload(key, request.files["file"], case)
+                    if r == c3videoupload.SUCCESS:
+                        url = "http://endlessrenovation.com%s" % url_for("preview_file", filename=status)
+                        flash("Video uploaded succesfully at:\n%s" % url, "info")
+                    else:
+                        flash(status, "error")
                 else:
                     flash("No file specified.", "error")
         else:

@@ -413,6 +413,7 @@ Ab¥y¥la
 Ab¥Ž¥lard
 ac-glob¥u¥lin
 ace
+ac¥cept¥ing
 ace¥y-deuc¥y
 ache
 Ach¥ae¥men¥i¥dae
@@ -4593,6 +4594,7 @@ an¥ge¥kok
 An¥ge¥la
 An¥ge¥le¥no
 An¥ge¥line
+An¥ge¥les
 an¥ge¥lique
 An¥ge¥li¥co
 An¥ge¥li¥na
@@ -6505,6 +6507,7 @@ ap¥peal¥ing¥ly
 ap¥peal¥ing¥ness
 ap¥pear
 ap¥pear¥ance
+ap¥pear¥ing
 ap¥pease
 ap¥peased
 ap¥pease¥ment
@@ -8181,6 +8184,7 @@ As¥si¥dae¥an
 As¥si¥de¥an
 as¥si¥du¥i¥ty
 As¥si¥si
+as¥signed
 as¥soil
 as¥sort
 as¥sort¥a¥tive
@@ -17796,6 +17800,7 @@ bol¥to¥ni¥a
 Bol¥za¥no
 Bol¥’¥var
 bomb
+bomb
 bomb cal¥o¥rim¥e¥ter
 bombe
 bomb¥able
@@ -25500,6 +25505,7 @@ Chang¥chow¥fu
 Chang¥chun
 chang¥ed¥ness
 chang¥er
+chang¥es
 chang¥ing
 Chang¥sha
 Chang¥teh
@@ -37386,6 +37392,7 @@ dance
 dance¥a¥bil¥i¥ty
 dance¥a¥ble
 danc¥er
+danc¥es
 danc¥ing
 danc¥ing¥ly
 dane¥geld
@@ -44997,6 +45004,7 @@ Do¥ver
 Do¥ver's pow¥der
 Do¥wa¥giac
 do¥wie
+down¥side
 do¥wy
 do¥–a
 DPH
@@ -48523,6 +48531,7 @@ en¥larg¥ing¥ly
 en¥lar¥ged¥ness
 en¥light¥en
 en¥light¥ened¥ly
+en¥light¥ened
 en¥light¥ened¥ness
 en¥light¥en¥er
 en¥light¥en¥ing¥ly
@@ -53354,6 +53363,7 @@ E¥wald
 E¥we
 E¥wig-weib¥li¥che
 e¥ya¥let
+ex¥cre¥ment¥a¥ble
 E¥ze¥chi¥el
 E¥ze¥ki¥el
 E¥‘¥ti¥on
@@ -65066,10 +65076,12 @@ gui¥ro
 gui¥sarme
 gui¥tar
 gui¥tar¥fish
+gui¥tar's
 gui¥tar¥fish¥es
 gui¥tar¥ist
 gui¥tar¥like
 Gui¥try
+gui¥tars
 Gui¥zot
 Guj¥ran¥wa¥la
 gulch
@@ -68721,6 +68733,7 @@ Her¥n‡n¥dez
 Her¥od
 Her¥od Ant¥i¥pas
 Her¥od A¥grip¥pa I
+he¥roes
 her¥on
 her¥on's-bill
 her¥on¥ry
@@ -87211,6 +87224,7 @@ Le¥ros
 Le¥roy
 Le¥sage
 Le¥sche¥tiz¥ky
+les¥bi¥ans
 le¥sion
 Le¥so¥tho
 Le¥ta
@@ -88515,6 +88529,7 @@ Li¥se
 Li¥se¥lot¥te
 Li¥sieux
 Li¥tae
+list¥ened
 li¥tas
 li¥tchi
 li¥ter
@@ -96746,6 +96761,7 @@ mi¥sog¥y¥ny
 mi¥sol¥o¥gist
 mi¥sol¥o¥gy
 Mi¥tan¥ni
+mis¥takes
 Mi¥tan¥ni¥an
 mi¥ter
 mi¥tered
@@ -97049,6 +97065,7 @@ mond¥i¥al
 mong
 Monge
 Monk
+mon¥grels
 monk
 monks¥hood
 monk¥er¥y
@@ -115385,6 +115402,7 @@ pash¥ka
 Pash¥to
 pasque¥flow¥er
 pass
+pass
 pass o¥ver
 passe-par¥tout
 passed
@@ -116388,6 +116406,7 @@ pa¥tron¥ship
 pa¥troon
 pa¥troon¥ship
 Pa¥tro¥clus
+pat¥terns
 pa¥v
 pa¥van
 pa¥vane
@@ -139703,6 +139722,7 @@ rug¥ging
 rug¥like
 Ruhr
 ruin
+ru¥ined
 Ruis¥dael
 rule
 Rules
@@ -143101,6 +143121,7 @@ sec¥ond¥er
 sec¥ond¥ly
 sec¥ond¥rat¥er
 sec¥ond¥sight¥ed¥ness
+sec¥onds
 sec¥o¥bar¥bi¥tal
 sec¥re¥tar¥ies-gen¥er¥al
 sec¥re¥tar¥i¥al
@@ -146806,6 +146827,7 @@ shoon
 shoot
 shoot¥er
 shoot¥ing box
+shoot¥ing
 shoot¥ing brake
 shoot¥ing gal¥ler¥y
 shoot¥ing i¥ron
@@ -149300,6 +149322,7 @@ snid¥est
 sniff
 sniff¥er
 sniff¥ing¥ly
+sniff¥ing
 sniff¥ish
 sniff¥i¥ly
 sniff¥i¥ness
@@ -151514,6 +151537,7 @@ spi¥ril¥lar
 spi¥ril¥lum
 spi¥ri¥to¥so
 spi¥ri¥tu¥el
+spir¥it¥u¥al¥ly
 spi¥ri¥tu¥elle
 spi¥roid
 spi¥rom¥e¥ter
@@ -153806,10 +153830,12 @@ sto¥rey
 sto¥rey house
 sto¥reyed
 sto¥ried
+sto¥ries
 sto¥ri¥ette
 sto¥ry
 Sto¥ry
 sto¥ry line
+sto¥ry's
 sto¥ry¥board
 sto¥ry¥book
 sto¥ry¥ing
@@ -154357,6 +154383,7 @@ stump¥y
 stum¥ble
 stum¥bler
 stum¥bling block
+stumbl¥ing
 stum¥ming
 stun
 stung
@@ -161304,6 +161331,7 @@ Te¥re¥sian
 Te¥re¥si¥na
 Te¥re¥us
 Te¥ruel
+test¥ing
 te¥tan¥ic
 te¥tan¥i¥cal
 te¥tan¥i¥cal¥ly
@@ -162502,6 +162530,7 @@ tick¥seed
 tick¥tack
 tick¥tock
 tide
+tid¥bits
 tide o¥ver
 tide¥ful
 tide¥head
@@ -163246,6 +163275,7 @@ Tong¥a
 Tong¥king
 tong¥man
 tonk
+ton¥ics
 tonne
 ton¥al
 ton¥al¥ist
@@ -164778,6 +164808,7 @@ trea¥son¥a¥bly
 trea¥son¥ous
 trea¥son¥ous¥ly
 trea¥tise
+treat¥ing
 trea¥ty
 trea¥ty port
 trea¥ty¥less
@@ -182192,6 +182223,7 @@ Waite
 wait¥er
 wait¥ewoman
 wait¥in'
+wait¥ing
 wait¥ing game
 wait¥ing list
 wait¥ing room
@@ -182411,6 +182443,7 @@ wan¥ner
 wan¥nest
 wan¥ning
 wan¥nish
+want¥ed
 wan¥ton
 wap
 Wap¥a¥ko¥net¥a
@@ -184391,6 +184424,7 @@ whis¥key sour
 whis¥ky
 whis¥ky mac
 whis¥per
+whisp¥ered
 whis¥per¥er
 whis¥per¥ing
 whis¥per¥ing cam¥paign

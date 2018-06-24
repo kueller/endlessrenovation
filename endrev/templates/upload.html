@@ -31,12 +31,12 @@
                 {% if messages %}
                     {% for category, message in messages %}
                         {% if category == "error" %}
-                        <label name="status" style="color:red">
+                        <p name="status" style="color:red">
                         {% elif category == "info" %}
-                        <label name="status" style="color:green">
+                        <p name="status" style="color:green">
                         {% endif %}
                         {{ message }}
-                        </label><br><br>
+                        </p><br><br>
                     {% endfor %}
                 {% endif %}
             {% endwith %}

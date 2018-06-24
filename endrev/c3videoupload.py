@@ -52,10 +52,30 @@ def remove_case(user_key, case):
     case = case.upper().strip()
 
     try:
+        db = read_preview_db()
+    except IOError:
+        return [ERR, "There was an error processing your request."]
+
+    if case not in db:
+        return [NOTFOUND, "Case number did not match any video."]
+
+    path = db[case]
+
+    if not os.path.isfile(path):
+        return [ERR, "There was an error processing your request."]
+
+    del db[case]
+
+    try:
+        write_preview_db(db)
+    except IOError:
+        return [ERR, "There was an error processing your request."]
+
+    try:
         with open("/var/www/endrev/endrev/data/users.json", "r") as f:
             text = f.read()
     except IOError:
-        return ERR
+        return [ERR, "There was an error processing your request."]
 
     users = json.loads(text)
 
@@ -65,30 +85,10 @@ def remove_case(user_key, case):
             with open("/var/www/endrev/endrev/data/users.json", "w") as f:
                 f.write(json.dumps(users, indent=4))
         except IOError:
-            return ERR
-
-    try:
-        db = read_preview_db()
-    except IOError:
-        return ERR
-
-    if case not in db:
-        return NOTFOUND
-
-    path = db[case]
-
-    if not os.path.isfile(path):
-        return ERR
-
-    del db[case]
-
-    try:
-        write_preview_db(db)
-    except IOError:
-        return ERR
+            return [ERR, "There was an error processing your request."]
 
     os.remove(path)
-    return SUCCESS
+    return [SUCCESS, "Case %s removed succesfully." % case]
 
 def add_case(case, filename):
     case = case.upper().strip()
@@ -96,7 +96,7 @@ def add_case(case, filename):
     try:
         db = read_preview_db()
     except IOError:
-        return ERR
+        return [ERR, "There was an error processing your upload."]
 
     if case in db:
         if os.path.isfile(db[case]):
@@ -107,16 +107,16 @@ def add_case(case, filename):
     try:
         write_preview_db(db)
     except IOError:
-        return ERR
+        return [ERR, "There was an error processing your upload."]
 
-    return SUCCESS
+    return [SUCCESS, ""]
 
 def upload(user_key, video, case):
     if video.filename == "":
-        return NOTFOUND
+        return [NOTFOUND, "No file specified."]
 
     if not video:
-        return ERR
+        return [ERR, "There was an error processing your upload."]
 
     filename = clean_filename(video.filename)
 
@@ -124,9 +124,16 @@ def upload(user_key, video, case):
         with open("/var/www/endrev/endrev/data/users.json", "r") as f:
             text = f.read()
     except IOError:
-        return ERR
+        return [ERR, "There was an error processing your upload."]
 
     users = json.loads(text)
+
+    path = "%s/%s" % (PREVIEW_PATH, filename)
+    if os.path.isfile(path):
+        return [EXISTS, "File with that name already exists on the server."]
+    
+    r = add_case(case, filename)
+    if r[0] != SUCCESS: return r
 
     if case in users[user_key]["cases"]:
         users[user_key]["cases"].remove(case)
@@ -134,16 +141,9 @@ def upload(user_key, video, case):
             with open("/var/www/endrev/endrev/data/users.json", "w") as f:
                 f.write(json.dumps(users, indent=4))
         except IOError:
-            return ERR
-
-    path = "%s/%s" % (PREVIEW_PATH, filename)
-    if os.path.isfile(path):
-        return EXISTS
-    
-    r = add_case(case, filename)
-    if r != SUCCESS: return r
+            return [ERR, "There was an error processing your upload."]
 
     video.save(path)
-    return SUCCESS
+    return [SUCCESS, filename]
 
     
