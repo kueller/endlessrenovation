@@ -1,13 +1,18 @@
 import random
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory, flash
 
+import os
 import ermail
 import c3videoupload
+import c3casemanager
 from c3hyphenator import setup_moby, convert_lyrics
 from c3videosubmit import verify, format_email 
 
+from hidden import hidden_pages
+
 app = Flask(__name__)
 app.url_map.strict_slashes = False
+app.register_blueprint(hidden_pages)
 #app.secret_key = "no"
 
 db_list = {
@@ -22,10 +27,6 @@ with open("/var/www/endrev/endrev/data/lyrics", "r") as f:
 def home():
     lyric = random.choice(lyrics)
     return render_template("lyric.html", lyric=lyric.encode('utf-8'))
-
-@app.route("/tardis")
-def tardis():
-    return render_template("tardis.html")
 
 @app.route("/sort")
 def antlers_sort():
@@ -116,6 +117,45 @@ def video_upload():
 @app.route("/rb/preview/<filename>")
 def preview_file(filename):
     return send_from_directory("/var/www/endrev/endrev/static/preview/", filename)
+
+@app.route("/rb/user/<userkey>", methods=["POST", "GET"])
+def profile(userkey):
+    user = c3casemanager.get_user_from_key(userkey)
+
+    if user is None:
+        return render_template("blank.html", title="Invalid User")
+
+    cases = c3casemanager.read_case_db()
+    previews = c3casemanager.read_preview_db()
+
+    user_cases = []
+    for case in user["cases"] + user["completed"]:
+        data = {}
+        data["case"] = case
+        case_type = c3casemanager.get_case_type(case)
+        if case_type == "RBPV":
+            data["info"] = c3casemanager.rbpv_clean_info(case)
+            if case in previews:
+                filename = os.path.basename(previews[case])
+                data["preview"] = url_for("preview_file", filename=filename)
+                user_cases.append(data)
+            else:
+                data["preview"] = None
+                user_cases.insert(0, data)
+
+    if request.method == 'POST':
+        case = ''
+        for entry in request.form:
+            if entry.startswith("RB"):
+                case = entry
+                break
+
+        if case != '':
+            case_type = c3casemanager.get_case_type(case)
+            c3casemanager.remove_case(case, case_type, userkey)
+            return redirect(url_for("profile", userkey=userkey))
+
+    return render_template("user.html", user=user, cases=user_cases)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")

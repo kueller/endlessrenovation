@@ -87697,6 +87697,7 @@ lim¥no¥log¥i¥cal¥ly
 Lim¥no¥ri¥a
 lim¥ou¥sine
 lim¥o¥nene
+lim¥ou¥sines
 lim¥pet
 lim¥pid
 lim¥pid¥i¥ty
@@ -109143,6 +109144,7 @@ oo¥ry
 ope
 OPEC
 oph¥ite
+op¥ened
 Oph¥iu¥chus
 oph¥i¥cleide
 oph¥i¥clei¥de¥an
@@ -132907,6 +132909,7 @@ rec¥on¥noi¥tre
 rec¥ord
 rec¥ord-chang¥er
 rec¥ord-play¥er
+re¥cor¥ded
 rec¥ord¥less
 rec¥re¥ance
 rec¥re¥ant
@@ -135176,6 +135179,7 @@ re¥flec¥tion
 re¥flec¥tion den¥si¥ty
 re¥flec¥tion fac¥tor
 re¥flec¥tive
+re¥flec¥tions
 re¥flec¥tive¥ly
 re¥flec¥tive¥ness
 re¥flec¥tiv¥i¥ty
@@ -158717,6 +158721,7 @@ sym¥pa¥this¥er
 sym¥pa¥this¥ing
 sym¥pa¥thize
 sym¥pa¥thiz¥er
+sym¥path¥ized
 sym¥pa¥thiz¥ing¥ly
 sym¥pa¥tho¥lyt¥ic
 sym¥pa¥tho¥mi¥met¥ic
@@ -182687,6 +182692,7 @@ Was¥ser¥mann test
 Was¥si¥ly
 wat
 watch
+wat¥'cha
 Watch Com¥mit¥tee
 watch¥band
 watch¥case
@@ -184196,6 +184202,7 @@ wharve
 wharves
 Whar¥ton
 what
+what¥'cha
 what'd
 what'll
 what's

@@ -1,5 +1,6 @@
 import json
 import random
+import c3casemanager
 
 def list_replace(l, q, r):
     return [r if x == q else x for x in l]
@@ -18,31 +19,8 @@ def verify(form):
 
     return [0, None]
 
-def new_case_code():
-    with open("/var/www/endrev/endrev/static/preview/preview.db", "r") as f:
-        text = f.read()
-
-    if text.strip() != "":
-        match = True
-        while match:
-            caseno = random.randint(1000,9999)
-            match = False
-            for line in text.split('\n'):
-                if line.startswith("RBPV-%d" % caseno):
-                    match = True
-    else:
-        caseno = random.randint(1000,9999)
-
-    return "RBPV-%d" % caseno
-
 def decide_recipient(instruments, game_type):
-    try:
-        with open("/var/www/endrev/endrev/data/users.json", "r") as f:
-            text = f.read()
-    except IOError:
-        return ["", ""]
-
-    users = json.loads(text)
+    users = c3casemanager.read_user_db()
     valids = {}
 
     for user in users:
@@ -72,19 +50,11 @@ def decide_recipient(instruments, game_type):
            min_user = user
 
     try:
-        case = new_case_code()
+        case = c3casemanager.new_case_code("RBPV")
     except IOError:
         return ["", ""]
 
-    users[min_user]["cases"].append(case)
-
-    try:
-        with open("/var/www/endrev/endrev/data/users.json", "w") as f:
-            f.write(json.dumps(users, indent=4))
-    except IOError:
-        return ["", ""]
-
-    return [valids[min_user]["email"], case]
+    return [valids[min_user]["email"], case, min_user]
 
 def format_email(form):
     instruments = []
@@ -104,7 +74,7 @@ def format_email(form):
     elif form["pro-select"] == "bass":
         instruments = list_replace(instruments, "B", "PRO-B")
 
-    recipient, case = decide_recipient(instruments, "std")
+    recipient, case, user_key = decide_recipient(instruments, "std")
 
     name = form["name-input"].strip()
     song = form["song-input"].strip()
@@ -134,5 +104,7 @@ def format_email(form):
     body += "NEEDED BY: %s\n\n" % date
 
     body += "Additional comments:\n%s" % comments
+
+    c3casemanager.add_new_case(case, "RBPV", user_key, body)
 
     return [recipient, subject, body]

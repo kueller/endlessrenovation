@@ -3,6 +3,8 @@ import smtplib
 import hashlib
 
 from email.MIMEMultipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.header import Header
 
 import mailinfo
 
@@ -12,15 +14,14 @@ def send(recipient, subject, body):
     if recipient == "self":
         recipient = mailinfo.ADMIN
 
-    print(recipient)
-
     intro = ("This is a message from the Task Request Automated Network "
             "System.")
 
     body = "%s\n\n%s" % (intro, body)
 
-    msg = "Subject: %s\n\n%s" % (subject, body)
-    hash = hashlib.md5(msg).hexdigest()
+    # Simple message format for hashing
+    msg = "%s\n\n%s" % (subject, body)
+    hash = hashlib.md5(msg.encode('utf-8')).hexdigest()
 
     try:
         with open(HASHFILE, 'r') as f:
@@ -31,11 +32,16 @@ def send(recipient, subject, body):
     if hash in hashlist: return 1
     hashlist.append(hash)
 
+    msg = MIMEText(body, 'plain', 'utf-8')
+    msg['Subject'] = Header(subject, 'utf-8')
+    msg['From'] = mailinfo.USERNAME
+    msg['To'] = recipient
+
     try:
         mail = smtplib.SMTP_SSL(mailinfo.SERVER, mailinfo.PORT)
         mail.ehlo()
         mail.login(mailinfo.USERNAME, mailinfo.PASSWORD)
-        mail.sendmail(mailinfo.USERNAME, recipient, msg)
+        mail.sendmail(mailinfo.USERNAME, recipient, msg.as_string())
         mail.quit()
     except email.errors.MessageError:
         print("Message Error")

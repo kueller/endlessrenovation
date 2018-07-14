@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>User Page</title>
+	<meta charset="utf-8">
+    <meta property="og:title" content="Endless Renovation RB User Page"/>
+    <meta property="og:url" content="http://endlessrenovation.com"/>
+    <link rel="shortcut icon" type="image/svg" href="{{ url_for('static', filename='avocado.ico') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/rb.css') }}"/> 
+  </head>
+</head>
+
+<body class="form-style">
+
+    <h1>{{user.name}}</h1>
+
+    <h2>Info</h2>
+    <p>
+        Public User Key: {{user.public_key}}<br>
+        Email: {{user.email}}<br>
+        Game Type: {{user.game_type}}<br>
+        You have {{cases|length}} cases.
+    </p>
+
+    <h2>Cases</h2>
+    {% for case in cases %}
+        <form method="POST">
+            <h3>{{ case.case }}</h3>
+            <p>
+            {% for para in case.info %}
+                {{ para }}<br>
+            {% endfor %}
+            {% if case.preview is not none %}
+                <a href="{{ case.preview }}">Preview</a>
+            {% else %}
+                No preview yet.
+            {% endif %}
+            </p>
+            <input type="submit" name="{{ case.case }}" value="Delete." style="font-size: 12px">
+        </form>
+        <hr>
+    {% endfor %}
+</body>
