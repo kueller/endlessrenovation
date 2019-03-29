@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Case List</title>
+	<meta charset="utf-8">
+    <link rel="shortcut icon" type="image/svg" href="{{ url_for('static', filename='avocado.ico') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/rb.css') }}"/> 
+  </head>
+</head>
+
+<body class="form-style">
+    <h2>Open Cases</h2>
+    <table>
+        <tr>
+            <th>Case No.</th>
+            <th>Song Info</th>
+            <th>Requester</th>
+            <th>Due By</th>
+            <th>Assigned To</th>
+        </tr>
+        {% for case_t in cases %}
+        {% for caseno in cases[case_t] %}
+        {% if cases[case_t][caseno].status == "open" %}
+        <tr>
+            <td><a href="{{ url_for('single_case', caseno=caseno) }}">{{ caseno }}</a></td> 
+            <td style="width: 450px">{{ cases[case_t][caseno].title }}</td>
+            <td>{{ cases[case_t][caseno].requested_by }}</td>
+            <td>{{ cases[case_t][caseno].due_by }}</td>
+            {% if cases[case_t][caseno].assignee != "none" %}
+                <td> {{ users[cases[case_t][caseno].assignee].name }}</td>
+            {% else %}
+                <td></td>
+            {% endif %}
+        </tr>
+        {% endif %}
+        {% endfor %}
+        {% endfor %}
+    </table>
+
+    <h2>Closed Cases</h2>
+    <table>
+        <tr>
+            <th>Case No.</th>
+            <th>Song Info</th>
+            <th>Requester</th>
+            <th>Due By</th>
+            <th>Assigned To</th>
+        </tr>
+        {% for case_t in cases %}
+        {% for caseno in cases[case_t] %}
+        {% if cases[case_t][caseno].status == "closed" %}
+        <tr>
+            <td><a href="{{ url_for('single_case', caseno=caseno) }}">{{ caseno }}</a></td> 
+            <td>{{ cases[case_t][caseno].title }}</td>
+            <td>{{ cases[case_t][caseno].requested_by }}</td>
+            <td>{{ cases[case_t][caseno].due_by }}</td>
+            {% if cases[case_t][caseno].assignee != "none" %}
+                <td>{{ users[cases[case_t][caseno].assignee].name }}</td>
+            {% else %}
+                <td></td>
+            {% endif %}
+        </tr>
+        {% endif %}
+        {% endfor %}
+        {% endfor %}
+    </table>
+</body>
+</html>

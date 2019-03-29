@@ -87,6 +87,14 @@ def upload(user_key, video, case):
     if os.path.isfile(path):
         return [EXISTS, "File with that name already exists on the server."]
     
+    cases = c3casemanager.read_case_db()
+    case_t = c3casemanager.get_case_type(case)
+    if case_t in cases and case in cases[case_t]:
+        cases[case_t][case]["status"] = "closed"
+        c3casemanager.write_case_db(cases)
+    else:
+        return [ERR, "Case does not exist."]
+
     r = add_case(case, filename)
     if r[0] != SUCCESS: return r
 

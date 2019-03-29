@@ -20,16 +20,25 @@ def insert_word(word, hyph, moby):
         text = f.read()
     lines = text.split('\n')
     lower = 0
+    exists = False
     upper = len(lines)
 
     while len(lines[lower:upper]) > 1:
         i = ((upper - lower) // 2) + lower
         if word.lower() > lines[i].replace('\xa5','').lower().strip():
             lower = i
+        elif word.lower() == lines[i].replace('\xa5','').lower().strip():
+            exists = True
+            break
         else:
             upper = i
 
-    lines.insert(i + 1, hyph)
+    if exists:
+        print("Word exists on line " + str(i+1))
+        lines[i] = hyph + '\r'
+    else:
+        print("Adding new word to line " + str(i+2))
+        lines.insert(i + 1, hyph + '\r')
 
     print("Word replaced in moby. Regenerating list...\n")
 

@@ -39,6 +39,10 @@ def hyph_word_en(moby, word):
             if s_word[i] != s_hyph[j]: s_hyph[j] = s_word[i]
             j += 1
         return ''.join(s_hyph)
+    elif word.lower().endswith("'s"):
+        word = hyph_word_en(moby, word[0:len(word)-2]) + word[-2] + word[-1]
+    elif word.lower().endswith('s'):
+        word = hyph_word_en(moby, word[0:len(word)-1]) + word[-1]
 
     return word
 
@@ -99,7 +103,10 @@ def convert_lyrics(text, lang, atsign, db_filename):
             
             try:
                 x = int(w)
-                n = num2words(x, lang=lang)
+                if x in range(1000, 9999+1):
+                    n = num2words(x, lang=lang, to='year')
+                else:
+                    n = num2words(x, lang=lang)
                 tok.append(n.replace('-', ' '))
             except ValueError:
                 try:

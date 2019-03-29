@@ -14,12 +14,11 @@
         <h2>Upload your finished preview here:</h2>
 
         <form method="POST" enctype=multipart/form-data>
-            <label>User Key:</label><br>
-            <input type="text" name="user-key"><br><br>
-
+            <p>
+            Logged in as <b>{{ user.name }}</b>
+            </p>
             <label>Preview Case Code:</label><br>
             <input type="text" name="case-code">
-            <input style="font-size: 13px" type="submit" value="Delete" name="clear">
             <br><br>
 
             <label>Preview Video File:</label><br>

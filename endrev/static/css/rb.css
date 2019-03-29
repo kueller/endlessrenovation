@@ -21,6 +21,23 @@ body {
     color: #333333;
 }
 
+table, th, td {
+    min-width: 170px;
+    max-width: 1000px;
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+
+th {
+    padding: 10px;
+    background-color: white;
+}
+
+td {
+    padding: 10px;
+    background-color: #efefef;
+}
+
 .disclaimer {
     position: relative;
     bottom: 5px;

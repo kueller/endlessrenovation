@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ caseno }}</title>
+	<meta charset="utf-8">
+    <link rel="shortcut icon" type="image/svg" href="{{ url_for('static', filename='avocado.ico') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/rb.css') }}"/> 
+  </head>
+</head>
+
+<script>
+function confirm_del(form) {
+    return confirm("This will delete the case and any video attached to it. Continue?");
+}
+</script>
+
+<body class="form-style">
+    <p>Logged in as <b>{{ user.name }}.</b> <a href="{{ url_for('logout') }}">Logout</a></p>
+    <h2>{{ caseno }}</h2>
+
+    <p>
+    Assigned to: <b>{{ assignee }}</b><br>
+    Status: <b>{{ case.status }}</b><br><br>
+
+    {% if case_t == "RBPV" %}
+    Request by: {{ case.requested_by }}<br>
+    Download: <a href="{{ case.download_link }}">{{ case.download_link }}</a><br><br>
+
+    INFO:<br>
+    {{ case.title }}<br>
+    Vocalist: {{ case.vocalist }}<br>
+    Instruments: {{ case.instruments }}<br>
+    {% if case.all_insts %}
+        Requires ALL INSTRUMENTS MODE<br>
+    {% else %}
+        All Instruments Mode not required<br>
+        Preferred Venue Type: {{ case.venue_type }}<br>
+    {% endif %}
+    NEEDED BY: {{ case.due_by }} <br>
+    Additional comments: {{ case.comments }}<br><br>
+
+    {% if case.preview_link is not none %}
+        <a href="{{ case.preview_link }}">Preview</a>
+    {% else %}
+        No preview yet. <a href="http://endlessrenovation.com/rb/upload" target="_blank">Go to the upload page.</a>
+    {% endif %}
+    {% endif %}
+    </p>
+
+  <form method="POST">
+    {% if assignee == user.name %}
+        <input style="font-size: 12px" type="submit" name="reassign" value="Assign to me" disabled><br><br>
+    {% else %}
+        <input style="font-size: 12px" type="submit" name="reassign" value="Assign to me"><br><br>
+    {% endif %}
+  </form>
+
+  {% if assignee == user.name %}
+  <form method="POST">
+        {% if case.status == "closed" %}
+        <input style="font-size: 12px" type="submit" name="open" value="Re-open"><br><br>
+        {% elif case.status == "open" %}
+        <input style="font-size: 12px" type="submit" name="close" value="Manual Close"><br><br>
+        {% endif %}
+  </form>
+  {% endif %}   
+
+  <form method="POST" onsubmit="return confirm_del(this);">
+        <input style="font-size: 12px" type="submit" name="delete" value="Delete">
+  </form>
+</body>

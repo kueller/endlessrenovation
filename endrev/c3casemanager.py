@@ -18,7 +18,7 @@ def write_user_db(users):
 
 def read_preview_db():
     with open("/var/www/endrev/endrev/static/preview/preview.db", "r") as f:
-        text = f.read()
+        text = f.read().strip()
 
     db = {}
 
@@ -55,6 +55,18 @@ def write_case_db(cases):
     with open("/var/www/endrev/endrev/data/cases.json", "w") as f:
         f.write(json.dumps(cases, indent=4))
 
+def get_case_type(case):
+    return case.split('-')[0]
+
+def get_case_from_code(caseno):
+    cases = read_case_db()
+    case_t = get_case_type(caseno)
+
+    if case_t not in cases: return None
+    if caseno not in cases[case_t]: return None
+
+    return cases[case_t][caseno]
+
 def get_user_from_key(secret_key):
     users = read_user_db()
     if users == None: return None
@@ -63,6 +75,11 @@ def get_user_from_key(secret_key):
         return users[secret_key]
 
     return None
+
+def case_exists(cases, caseno):
+    case_t = get_case_type(caseno)
+
+    return case_t in cases and caseno in cases[case_t]
 
 def new_case_code(case_type):
     cases = read_case_db()
@@ -79,9 +96,6 @@ def new_case_code(case_type):
 
     return "%s-%d" % (case_type, caseno)
 
-def get_case_type(case):
-    return case.split('-')[0]
-
 def add_new_case(case, case_type, user_key, msgbody):
     cases = read_case_db()
     users = read_user_db()
@@ -92,36 +106,121 @@ def add_new_case(case, case_type, user_key, msgbody):
     write_user_db(users)
     write_case_db(cases)
 
-def remove_case(case, case_type, user_key):
+def remove_case(caseno):
     cases = read_case_db()
     users = read_user_db()
     previews = read_preview_db()
 
+    case_t = get_case_type(caseno)
+
+    if caseno not in cases[case_t]:
+        return
+
+    user_key = cases[case_t][caseno]["assignee"]
+
     if user_key not in users:
         return
 
-    if case not in users[user_key]["cases"] + users[user_key]["completed"]:
+    if caseno not in users[user_key]["cases"] + users[user_key]["completed"]:
         return
 
-    if case not in cases[case_type]:
-        return
+    if caseno in users[user_key]["cases"]:
+        users[user_key]["cases"].remove(caseno)
+    elif caseno in users[user_key]["completed"]:
+        users[user_key]["completed"].remove(caseno)
 
-    if case in users[user_key]["cases"]:
-        users[user_key]["cases"].remove(case)
-    elif case in users[user_key]["completed"]:
-        users[user_key]["completed"].remove(case)
-
-    del cases[case_type][case]
+    del cases[case_t][caseno]
 
     write_user_db(users)
     write_case_db(cases)
 
-    if case in previews:
-        if not os.path.isfile(previews[case]):
+    if caseno in previews:
+        if not os.path.isfile(previews[caseno]):
             return
-        os.remove(previews[case])
-        del previews[case]
+        os.remove(previews[caseno])
+        del previews[caseno]
         write_preview_db(previews)
+
+def set_case_open(caseno):
+    users = read_user_db()
+    cases = read_case_db()
+
+    case_t = get_case_type(caseno)
+    if not case_exists(cases, caseno): return
+
+    if cases[case_t][caseno]["status"] != "closed": return
+
+    assignee = cases[case_t][caseno]["assignee"]
+    if assignee not in users: return
+
+    cases[case_t][caseno]["status"] = "open"
+
+    if caseno in users[assignee]["completed"]:
+        users[assignee]["completed"].remove(caseno)
+        users[assignee]["cases"].append(caseno)
+    else:
+        return
+
+    write_user_db(users)
+    write_case_db(cases)
+
+def set_case_closed(caseno):
+    users = read_user_db()
+    cases = read_case_db()
+
+    case_t = get_case_type(caseno)
+    if not case_exists(cases, caseno): return
+
+    if cases[case_t][caseno]["status"] != "open": return
+
+    assignee = cases[case_t][caseno]["assignee"]
+    if assignee not in users: return
+
+    cases[case_t][caseno]["status"] = "closed"
+
+    if caseno in users[assignee]["cases"]:
+        users[assignee]["cases"].remove(caseno)
+        users[assignee]["completed"].append(caseno)
+    else:
+        return
+
+    write_user_db(users)
+    write_case_db(cases)
+
+def reassign_case(caseno, new_user_key):
+    users = read_user_db()
+    cases = read_case_db()
+
+    if new_user_key not in users: return
+
+    case_t = get_case_type(caseno)
+    if not case_exists(cases, caseno): return
+
+    assignee = cases[case_t][caseno]["assignee"]
+
+    if assignee == new_user_key: return
+
+    if assignee != "none":
+        if assignee not in users: return
+
+        if caseno in users[assignee]["cases"]:
+            users[assignee]["cases"].remove(caseno)
+        elif caseno in users[assignee]["completed"]:
+            users[assignee]["completed"].remove(caseno)
+        else:
+            return
+
+    status = cases[case_t][caseno]["status"]
+
+    if status == "open":
+        users[new_user_key]["cases"].append(caseno)
+    elif status == "closed":
+        users[new_user_key]["completed"].append(caseno)
+
+    cases[case_t][caseno]["assignee"] = new_user_key
+
+    write_user_db(users)
+    write_case_db(cases)
 
 def rbpv_clean_info(case):
     cases = read_case_db()
