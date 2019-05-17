@@ -32,7 +32,12 @@ def hyphenate(word):
         word = word[0:len(word)-1]
 
     hyph = ""
+    skipindex = set([len(word)])
     for i in range(len(word)):
+        
+        if i in skipindex:
+            continue
+        
         hyph += word[i]
 
         if isvowel(word[i]):
@@ -41,19 +46,20 @@ def hyphenate(word):
         else:
             if (i + 1) < len(word):
                 if isvowel(word[i+1]): continue
-            else:
-                if (i + 2) < len(word):
-                    if istrigraph(word[i], word[i+1], word[i+2]):
-                        hyph += word[i+1] + word[i+2]
-                        i += 2
-                        continue
-                if (i + 1) < len(word):
-                    if isdigraph(word[i], word[i+1]):
-                        hyph += word[i+1]
-                        i += 1
-                        continue
-                    else:
-                        hyph += '- '
+                else:
+                    if (i + 2) < len(word):
+                        if istrigraph(word[i], word[i+1], word[i+2]):
+                            hyph += word[i+1] + word[i+2]
+                            skipindex.add(i+1)
+                            skipindex.add(i+2)
+                            continue
+                    if (i + 1) < len(word):
+                        if isdigraph(word[i], word[i+1]):
+                            hyph += word[i+1]
+                            skipindex.add(i+1)
+                            continue
+                        else:
+                            hyph += '- '
 
     return hyph + appends
 
