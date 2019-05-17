@@ -38764,6 +38764,7 @@ deep-seat•ed
 deep•en
 deep•en•er
 deep•en•ing•ly
+deep•er
 deep•freeze
 Deep•freeze
 Deep•freez•ing
@@ -39428,6 +39429,7 @@ del•ug•ing
 de•lu•sion
 de•lu•sion•al
 de•lu•sive
+de•lu•sion•ite
 de•lu•sive•ly
 de•lu•sive•ness
 de•lu•so•ry
@@ -41566,6 +41568,7 @@ Dich•ter•lie•be
 dic•ing
 Dick
 dick
+dick•butt
 dick•cis•sel
 Dick•ens
 dick•ens
@@ -69684,6 +69687,7 @@ high•browed
 high•brow•ism
 high•chair
 high•dad•dy
+high•er
 high•er crit•i•cism
 high•er ed•u•ca•tion
 high•er math•e•mat•ics
@@ -74949,6 +74953,7 @@ im•preg•na•bly
 im•preg•na•ta•ble
 im•preg•nate
 im•preg•na•tion
+im•preg•nat•ing
 im•preg•na•tor
 im•preg•na•to•ry
 im•pre•sa
@@ -74961,6 +74966,7 @@ im•pre•scrip•ti•bly
 im•prese
 im•press
 im•press•er
+im•pressed
 im•press•i•bil•i•ty
 im•press•i•ble
 im•press•i•ble•ness
@@ -80413,7 +80419,7 @@ Is•tri•a
 Is•tri•an
 I•sus
 I•sère
-it'll
+it•'ll
 it's
 ita
 ITA
@@ -86032,6 +86038,7 @@ laud•a•tive
 lau•da•tor
 laud•a•to•ri•ly
 laud•a•to•ry
+laud•ed
 laud•er
 Lau•der
 Laud•i•an
@@ -88385,6 +88392,7 @@ lis•ten
 lis•ten in
 list•ened
 lis•ten•er
+lis•ten•ing
 lis•ten•ing post
 list•er
 Lis•ter
@@ -132960,6 +132968,7 @@ reach
 reach•a•ble
 reach•er
 re•a•cid•i•fi•ca•tion
+reach•ing
 re•a•cid•i•fied
 re•a•cid•i•fy
 re•a•cid•i•fy•ing
@@ -138320,7 +138329,7 @@ rhyn•cho•ce•phal•i•an
 rhyn•cho•ce•pha•lian
 rhy•o•lite
 rhy•o•lit•ic
-rhythm
+rhy•thm
 rhythm meth•od
 rhythm sec•tion
 rhyth•mic

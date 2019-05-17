@@ -1,9 +1,10 @@
 import sys
+import c3baguette
 import c3weebhyphens
 from num2words import num2words
 
 BAD_CHARS = ['.',',','(',')','[',']']
-num_langs = ['en']
+num_langs = ['en', 'fr']
 
 def setup_moby(moby_file):
     moby = {}
@@ -17,9 +18,13 @@ def setup_moby(moby_file):
 
     return moby
 
+# French will need the filename to write back to the database.
+# So it is returned with the DB. Be aware.
 def setup_db(lang, filename):
     if lang == "en":
         return setup_moby(filename)
+    elif lang == "fr":
+        return c3baguette.setup_fr_db(filename), filename
     else:
         return None
 
@@ -46,9 +51,37 @@ def hyph_word_en(moby, word):
 
     return word
 
+# Copied from hyph_word_en using French DB format.
+# If word needs to be algorithmically hyphenated, the result
+# is added to the DB.
+def hyph_word_fr(moby, word):
+    db = moby[0]
+    filename = moby[1]
+
+    if word in db:
+        return db[word].replace('#', '- ')
+    elif word.lower() in db:
+        hyph = db[word.lower()].replace('#', '- ')
+        s_word = list(word)
+        s_hyph = list(hyph)
+        j = 0
+
+        for i in range(len(word)):
+            if s_hyph[j] == '-': j += 1
+            if s_hyph[j] == ' ': j += 1
+            if s_word[i] != s_hyph[j]: s_hyph[j] = s_word[i]
+            j += 1
+        return ''.join(s_hyph)
+    else:
+        hyph = c3baguette.hyphenate_fr(word)
+        c3baguette.insert_fr_word(word, hyph, filename)
+        return hyph
+
 def hyph_word(moby, word, lang):
     if lang == "en":
         return hyph_word_en(moby, word)
+    elif lang == "fr":
+        return hyph_word_fr(moby, word)
     elif lang == "jp":
         return c3weebhyphens.hyphenate(word)
     else:
@@ -128,6 +161,8 @@ def convert_lyrics(text, lang, atsign, db_filename):
 
     formatted = ''
 
+    if lang == "fr": c3baguette.open_wiki()
+
     for line in lines:
         if line.strip() == '':
             formatted += '\n'
@@ -138,5 +173,7 @@ def convert_lyrics(text, lang, atsign, db_filename):
             tok.append(hyphenate(moby, w, lang))
             
         formatted += start + ' '.join(tok) + '\n'
+
+    if lang == "fr": c3baguette.close_wiki()
 
     return formatted 

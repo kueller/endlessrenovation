@@ -36,6 +36,7 @@ login_manager.login_view = "login"
 
 db_list = {
         "en": "/var/www/endrev/endrev/data/mhyph.txt",
+        "fr": "/var/www/endrev/endrev/data/db_fr.txt",
         "jp": ""
 }
 
@@ -97,7 +98,9 @@ def logout():
     return redirect(url_for("rb"))
 
 @app.route("/rb/hyph", methods=["POST", "GET"])
-def hyphenate():
+def hyphenate(lang=None):
+    lang = request.args.get("lang")
+
     formatted = ''
     if request.method == 'POST':
         if "submit" in request.form:
@@ -106,14 +109,14 @@ def hyphenate():
             lang = request.form["lang"]
             formatted = convert_lyrics(text, lang, use_at, db_list[lang])
             flash(formatted)
-            return redirect(url_for("hyphenate"))
+            return redirect(url_for("hyphenate", lang=lang))
         elif "new_word" in request.form:
             subject = "NEW WORD SUBMISSION - Lyric Hyphenator"
             body = "Suggestion:\n" + request.form["suggest"]
             ermail.send("self", subject, body)
-            return redirect(url_for("hyphenate"))
+            return redirect(url_for("hyphenate", lang=None))
 
-    return render_template("hyphenator.html")
+    return render_template("hyphenator.html", selected=lang)
 
 @app.route("/rb/submit", methods=["POST", "GET"])
 def video_submit():

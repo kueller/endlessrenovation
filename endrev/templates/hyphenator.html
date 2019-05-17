@@ -20,8 +20,9 @@
     Post lyrics below: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <span>
         <select name="lang">
-            <option value="en">English</option>
-            <option value="jp">Romaji</option>
+            <option {{ "selected" if selected == "en" else "" }} value="en">English</option>
+            <option {{ "selected" if selected == "fr" else "" }} value="fr">French</option>
+            <option {{ "selected" if selected == "jp" else "" }} value="jp">Romaji</option>
         </select>
     </p>
     {% with messages = get_flashed_messages() %}
