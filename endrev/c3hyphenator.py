@@ -75,6 +75,7 @@ def hyph_word_fr(moby, word):
     else:
         hyph = c3baguette.hyphenate_fr(word)
         c3baguette.insert_fr_word(word, hyph, filename)
+        db[word.lower()] = hyph.lower().replace('- ', '#')
         return hyph
 
 def hyph_word(moby, word, lang):
@@ -161,8 +162,6 @@ def convert_lyrics(text, lang, atsign, db_filename):
 
     formatted = ''
 
-    if lang == "fr": c3baguette.open_wiki()
-
     for line in lines:
         if line.strip() == '':
             formatted += '\n'
@@ -173,7 +172,5 @@ def convert_lyrics(text, lang, atsign, db_filename):
             tok.append(hyphenate(moby, w, lang))
             
         formatted += start + ' '.join(tok) + '\n'
-
-    if lang == "fr": c3baguette.close_wiki()
 
     return formatted 

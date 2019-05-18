@@ -29,6 +29,13 @@ def load_wiki_db():
         with io.open('/var/www/endrev/endrev/data/fr_wiktionary/phonetics_wiktionary_' + entry.encode('utf-8') + ".txt", encoding='utf-8') as f:
             wiktionary_lists[entry] = [line.strip(u"\n").split(u";") for line in f]
 
+def load_single_wiki_db(c):
+    wiktionary_list = {}
+    if c in wiktionary_entries:
+        with io.open('/var/www/endrev/endrev/data/fr_wiktionary/phonetics_wiktionary_' + c.encode('utf-8') + ".txt", encoding='utf-8') as f:
+            wiktionary_list[c] = [line.strip(u"\n").split(u";") for line in f]
+    return wiktionary_list
+
 # h aspirés stockés dans une variable
 with open(u'/var/www/endrev/endrev/data/fr_wiktionary/aspirated_h.txt') as f:
     aspirated_h_list = [line.decode("utf8").strip(u"\n") for line in f]

@@ -1,12 +1,6 @@
 import os
 import io
 from syllabes import syllabizer, consonants, vowels, accents
-from syllabes import load_wiki_db, close_wiki_db
-
-def open_wiki():
-    load_wiki_db()
-def close_wiki():
-    close_wiki_db()
 
 # French database in the format of
 #   word hy#phe#na#tion
@@ -14,7 +8,7 @@ def close_wiki():
 def setup_fr_db(db_file):
     db = {}
 
-    with open(db_file, 'r') as f:
+    with io.open(db_file, 'r', encoding=('utf-8')) as f:
         text = f.read()
 
     for line in text.split('\n'):

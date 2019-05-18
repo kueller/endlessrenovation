@@ -12,4 +12,4 @@ __version__ = "0.1.6"
 
 from syllabes import syllabizer
 from key_lists import consonants, vowels, accents
-from key_lists import load_wiki_db, close_wiki_db
+from key_lists import load_single_wiki_db

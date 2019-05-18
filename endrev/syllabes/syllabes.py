@@ -8,7 +8,7 @@ from key_lists import tokenizer, punctuations
 from key_lists import vocalic_sounds, consonantal_sounds, exceptions_j, exceptions_u
 #from key_lists import wiktionary_lists as wiki_list
 from key_lists import aspirated_h_list
-from key_lists import get_wiki_lists
+from key_lists import load_single_wiki_db
 
 """
     Implémentation du décompte des syllabes d'une chaîne de caractères donnée.
@@ -32,8 +32,6 @@ def replace_right(source, target, replacement, replacements=None):
 # source : chaîne de caractères
 # language : abréviation du code pays (fr,en...) en string
 def syllabizer(source, mode="default", language="fr"):
-    wiki_list = get_wiki_lists()
-
     # prétraitement du texte en entrée
     if type(source) != type(u""):
         source = source.decode("utf8")
@@ -51,6 +49,8 @@ def syllabizer(source, mode="default", language="fr"):
         except(IndexError):
             next_token = u"$"
         token_api = u"$"
+
+        wiki_list = load_single_wiki_db(token[0])
 
         # les pronoms et conjonctions élidées sont ignorées du point de vue phonétique
         if token[-2:] == u"qu":
@@ -86,7 +86,6 @@ def syllabizer(source, mode="default", language="fr"):
                         counter += syllabe_rules(token)
                         apis_list.append(u"syllabe_rules")
                     else:
-                        print "notre système de règles ne marche que pour le français (language = 'fr')"
                         apis_list.append(u"unknown")
 
         wiki_list = None
