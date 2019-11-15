@@ -81,8 +81,9 @@ def hyphenate_fr(word):
         pos = 0
 
         for i in range(0, sylb_count - 1):
-            tok, pos = find_next_tok(word, pos)
-            tokens.append(tok)
+            if pos < len(word):
+                tok, pos = find_next_tok(word, pos)
+                tokens.append(tok)
 
         tokens.append(word[pos:])
 

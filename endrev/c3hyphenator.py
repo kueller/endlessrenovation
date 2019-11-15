@@ -3,7 +3,7 @@ import c3baguette
 import c3weebhyphens
 from num2words import num2words
 
-BAD_CHARS = ['.',',','(',')','[',']']
+BAD_CHARS = ['.',',','(',')','[',']','"']
 num_langs = ['en', 'fr']
 
 def setup_moby(moby_file):
@@ -157,6 +157,7 @@ def convert_lyrics(text, lang, atsign, db_filename):
         line = line.replace('-', '=')
         line = line.replace('&', 'and')
         line = line[0:len(line)-1].replace('?', '') + line[len(line)-1]
+        line = line[0:len(line)-1].replace('!', '') + line[len(line)-1]
 
         lines.append(line.strip())
 
@@ -169,7 +170,15 @@ def convert_lyrics(text, lang, atsign, db_filename):
 
         tok = []
         for w in line.split():
-            tok.append(hyphenate(moby, w, lang))
+            if not w[-1].isalnum():
+                w_format = w[:len(w)-1]
+                endchar = w[-1]
+            else:
+                w_format = w
+                endchar = ''
+
+            hyphenated = hyphenate(moby, w_format, lang)
+            tok.append(hyphenated + endchar)
             
         formatted += start + ' '.join(tok) + '\n'
 

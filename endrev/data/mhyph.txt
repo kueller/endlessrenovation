@@ -9401,6 +9401,7 @@ arm¥ful
 arm¥guard
 arm¥hole
 ar¥mi¥ger
+ar¥mies
 ar¥mig¥er¥al
 ar¥mig¥er¥ous
 ar¥mil
@@ -10061,6 +10062,7 @@ as¥ka¥ri
 ask¥er
 a¥skew
 ask¥ing price
+ask¥ing
 Ask¥ja
 as¥kos
 a¥slant
@@ -11760,6 +11762,7 @@ a¥void
 a¥void¥a¥ble
 a¥void¥a¥bly
 a¥void¥ance
+a¥void¥ed
 a¥void¥er
 avoir
 av¥oir¥du¥pois
@@ -17367,6 +17370,7 @@ blow¥i¥ness
 blow¥ing
 blow¥i¥ron
 blow¥lamp
+blow¥job
 blown
 blown-mold¥ed
 blow¥off
@@ -17944,7 +17948,7 @@ bo¥ma
 Bo¥marc
 bomb
 bomb
-bom¥b
+bomb
 bomb cal¥o¥rim¥e¥ter
 bomb¥able
 bom¥ba¥ca¥ceous
@@ -21150,6 +21154,7 @@ but¥ter¥weed
 but¥ter¥wort
 but¥ter¥y
 but¥ting
+butt¥fuck
 butt¥in¥ski
 butt¥in¥sky
 but¥tle
@@ -30467,6 +30472,7 @@ com¥fort¥a¥bly
 com¥fort¥er
 Com¥fort¥er
 com¥fort¥ing¥ly
+com¥fort¥ing
 com¥fort¥less
 com¥fort¥less¥ly
 com¥fort¥less¥ness
@@ -34321,6 +34327,7 @@ coun¥ter¥word
 coun¥ter¥work
 coun¥tess
 count¥ing house
+count¥ing
 count¥less
 coun¥tri¥fied
 coun¥tri¥fied¥ness
@@ -37688,6 +37695,7 @@ dark-field il¥lu¥mi¥na¥tion
 dark-field mic¥ro¥scope
 dark¥en
 dark¥en¥er
+dark¥ened
 dark¥ey
 dark¥ie
 dark¥ies
@@ -38816,6 +38824,7 @@ de¥fea¥si¥ble
 de¥fea¥si¥ble¥ness
 de¥feat
 de¥feat¥er
+de¥feat¥ed
 de¥feat¥ism
 de¥feat¥ist
 de¥fea¥ture
@@ -40682,6 +40691,7 @@ de¥stool¥ment
 des¥tri¥er
 de¥stroy
 de¥stroy¥a¥ble
+de¥stroyed
 de¥stroy¥er
 de¥stroy¥er es¥cort
 de¥struct
@@ -42725,6 +42735,7 @@ dis¥cov¥er
 dis¥cov¥er¥a¥ble
 dis¥cov¥er¥a¥bly
 dis¥cov¥er¥er
+dis¥cov¥ered
 dis¥cov¥er¥ies
 dis¥cov¥ert
 dis¥cov¥er¥ture
@@ -45370,6 +45381,7 @@ dress u¥ni¥form
 dress-coat¥ed
 dres¥sage
 dress¥er
+dress¥es
 dress¥i¥er
 dress¥i¥est
 dress¥i¥ly
@@ -46332,6 +46344,7 @@ dys¥es¥the¥sia
 dys¥es¥thet¥ic
 dys¥func¥tion
 dys¥gen¥ic
+dys¥func¥tion¥al
 dys¥gen¥ics
 dys¥gno¥sia
 dys¥gon¥ic
@@ -59610,6 +59623,7 @@ fuse¥less
 Fu¥se¥li
 fuse¥like
 fuse¥tron
+fu¥ses
 Fu¥shih
 Fu¥shun
 fu¥si¥bil¥i¥ty
@@ -66820,6 +66834,7 @@ hand¥i¥est
 hand¥i¥ly
 hand¥i¥ness
 hand¥i¥work
+hand¥job
 hand¥ker¥chief
 han¥dle
 han¥dle¥a¥ble
@@ -74809,6 +74824,7 @@ im¥pla¥cen¥tal
 im¥pla¥cen¥tate
 im¥plant
 im¥plan¥ta¥tion
+im¥plan¥ted
 im¥plant¥er
 im¥plau¥si¥bil¥i¥ty
 im¥plau¥si¥ble
@@ -76654,6 +76670,7 @@ in¥flex¥ion¥less
 in¥flict
 in¥flict¥a¥ble
 in¥flict¥er
+in¥flic¥ted
 in¥flic¥tion
 in¥flic¥tive
 in¥flic¥tor
@@ -91616,8 +91633,6 @@ mam¥pa¥ra
 Ma¥mu¥ri¥us
 mam¥zer
 man
-Man
-Ma¥n
 man a¥bout town
 man Fri¥day
 man-eat¥er
@@ -96312,6 +96327,7 @@ mis¥dic¥tat¥ed
 mis¥did
 mis¥di¥div¥ed
 mis¥di¥rect
+mis¥di¥rect¥ed
 mis¥di¥rec¥tion
 mis¥di¥vide
 mis¥di¥vid¥ing
@@ -98327,7 +98343,7 @@ mote¥y
 moth
 moth-eat¥en
 moth¥ball
-moth¥er
+Mo¥ther
 Moth¥er Car¥ey's chick¥en
 moth¥er coun¥try
 Moth¥er Goose
@@ -107683,7 +107699,9 @@ notes in¥e¥gales
 note¥wor¥thi¥ly
 note¥wor¥thi¥ness
 note¥wor¥thy
+noth¥in
 noth¥ing
+noth¥in'
 noth¥ing's
 noth¥ing¥ness
 no¥thus
@@ -115049,6 +115067,7 @@ pan¥try¥man
 pants
 pant¥suit
 pant¥y gir¥dle
+pan¥ty¥hose
 pant¥y¥waist
 Pan¥urge
 pan¥urg¥ic
@@ -115583,6 +115602,7 @@ pa¥ren¥ti¥cide
 par¥ent¥less
 par¥ent¥like
 par¥er¥gon
+par¥ents'
 pa¥re¥sis
 par¥es¥the¥sia
 par¥es¥the¥si¥a
@@ -123184,6 +123204,7 @@ pound-fool¥ish
 pound¥age
 pound¥al
 pound¥er
+pound¥ing
 pour
 pour¥a¥bil¥i¥ty
 pour¥a¥ble
@@ -134766,6 +134787,7 @@ re¥flect
 re¥flect¥ance
 re¥flec¥tance
 re¥flect¥i¥ble
+re¥flect¥ed
 re¥flect¥ing tel¥e¥scope
 re¥flect¥ing¥ly
 re¥flec¥tion
@@ -135896,6 +135918,7 @@ re¥mem¥ber
 re¥mem¥bered
 re¥mem¥ber¥er
 re¥mem¥brance
+re¥mem¥ber¥ing
 Re¥mem¥brance Sun¥day
 Re¥mem¥branc¥er
 re¥mem¥branc¥er
@@ -135923,6 +135946,7 @@ re¥mil¥i¥ta¥riz¥ing
 re¥mill
 re¥mill¥a¥ble
 re¥mind
+re¥mind¥er
 re¥mind¥ful
 re¥min¥gle
 Rem¥ing¥ton
@@ -137249,6 +137273,7 @@ re¥string¥ing
 re¥strive
 re¥striv¥en
 re¥striv¥ing
+rest¥room
 re¥strove
 re¥struc¥ture
 re¥struc¥tured
@@ -139159,6 +139184,7 @@ rol¥ler der¥by
 roll¥er skate
 roll¥er tow¥el
 roll¥er-skate
+rol¥ler¥coast¥er
 rol¥lick
 rol¥lick¥er
 rol¥lick¥ing
@@ -146070,6 +146096,7 @@ sev¥er¥ance
 sev¥er¥ance pay
 se¥vere
 se¥vere¥ly
+sev¥ered
 se¥vere¥ness
 se¥ver¥er
 se¥ver¥est
@@ -146465,6 +146492,7 @@ sharp-wit¥ted
 sharp-wit¥ted¥ness
 sharp¥bill
 sharp¥en
+sharp¥ened
 sharp¥er
 sharp¥freez¥ing
 sharp¥froze
@@ -147563,6 +147591,7 @@ sigh
 sigh¥er
 sigh¥ful
 sigh¥ful¥ly
+sigh¥ing
 sigh¥less
 sigh¥like
 sight
@@ -149323,6 +149352,7 @@ smooth¥hound
 smooth¥ie
 smooth¥ies
 smooth¥ing i¥ron
+smooth¥ing
 smooth¥ly
 smooth¥ness
 smooth¥y
@@ -153566,6 +153596,7 @@ still¥er
 stil¥li¥cide
 stil¥li¥form
 Still¥son wrench
+still¥ness
 Still¥wa¥ter
 stil¥ly
 stilt
@@ -158476,6 +158507,7 @@ sway¥back
 sway¥er
 sway¥ful
 sway¥ing¥ly
+sway¥ing
 Swa¥zi
 Swa¥zi Ter¥ri¥to¥ry
 Swa¥zi¥land
@@ -158556,6 +158588,7 @@ sweet¥bri¥er
 sweet¥en
 sweet¥en¥er
 sweet¥en¥ing
+sweet¥er
 sweet¥heart
 sweet¥heart a¥gree¥ment
 sweet¥ie
@@ -165963,6 +165996,7 @@ truck¥le bed
 truck¥ler
 truck¥ling¥ly
 truck¥load
+truck¥stop
 truc¥u¥lence
 truc¥u¥len¥cy
 truc¥u¥lent
@@ -182644,6 +182678,7 @@ wand
 Wan¥da
 wan¥der
 wan¥der¥er
+wan¥dered
 Wan¥der¥er
 wan¥der¥ing
 wan¥der¥ing al¥ba¥tross
@@ -182781,6 +182816,7 @@ warm¥heart¥ed
 warm¥heart¥ed¥ly
 warm¥heart¥ed¥ness
 warm¥ing pan
+warm¥ing
 warm¥ish
 warm¥ly
 warm¥ness
