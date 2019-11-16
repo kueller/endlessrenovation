@@ -37,7 +37,7 @@ login_manager.login_view = "login"
 db_list = {
         "en": "/var/www/endrev/endrev/data/mhyph.txt",
         "fr": "/var/www/endrev/endrev/data/db_fr.txt",
-        "jp": ""
+        "jp": "/var/www/endrev/endrev/data/mhyph.txt"
 }
 
 with open("/var/www/endrev/endrev/data/lyrics", "r") as f:
