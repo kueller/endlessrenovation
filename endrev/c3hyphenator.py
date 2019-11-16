@@ -21,7 +21,7 @@ def setup_moby(moby_file):
 # French will need the filename to write back to the database.
 # So it is returned with the DB. Be aware.
 def setup_db(lang, filename):
-    if lang == "en":
+    if lang == "en" or lang == "jp":
         return setup_moby(filename)
     elif lang == "fr":
         return c3baguette.setup_fr_db(filename), filename
@@ -84,7 +84,10 @@ def hyph_word(moby, word, lang):
     elif lang == "fr":
         return hyph_word_fr(moby, word)
     elif lang == "jp":
-        return c3weebhyphens.hyphenate(word)
+        if word.upper() == word:
+            return hyph_word_en(moby, word)
+        else:
+            return c3weebhyphens.hyphenate(word)
     else:
         return word
 
