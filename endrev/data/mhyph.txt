@@ -8546,6 +8546,7 @@ ap¥proach¥a¥ble
 ap¥proach¥a¥ble¥ness
 ap¥proach¥er
 ap¥proach¥less
+ap¥proach¥es
 ap¥pro¥bate
 ap¥pro¥bat¥ed
 ap¥pro¥bat¥ing
@@ -17129,6 +17130,7 @@ blind stamp¥ing
 blind¥age
 blind¥cat
 blind¥er
+blind¥ed
 blin¥ders
 blind¥fish
 blind¥fish¥es
@@ -35716,6 +35718,7 @@ crowd¥ed¥ly
 crowd¥ed¥ness
 crow¥die
 crow¥dy
+crowd¥ing
 crow¥er
 crow¥foot
 crow¥hop
@@ -37331,6 +37334,7 @@ dair¥y¥wom¥an
 dair¥y¥wom¥en
 da¥is
 dai¥sied
+dai¥sies
 Dai¥sy
 dai¥sy
 dai¥sy bush
@@ -47028,6 +47032,7 @@ Ed¥dic
 Ed¥die
 ed¥died
 Ed¥ding¥ton
+ed¥dies
 ed¥do
 ed¥dy
 Ed¥dy
@@ -67741,6 +67746,7 @@ head¥ach¥y
 head¥band
 head¥board
 head¥box
+head¥bone
 head¥cheese
 head¥cloth
 head¥dress
@@ -70910,6 +70916,7 @@ hon¥o¥rar¥i¥um
 hon¥o¥rar¥i¥ums
 hon¥or¥ar¥y
 hon¥or¥er
+hon¥ored
 Ho¥no¥ri¥a
 hon¥or¥if¥ic
 hon¥or¥if¥i¥cal
@@ -87721,6 +87728,7 @@ lift
 lift¥a¥ble
 lift¥boy
 lift¥er
+lift¥ed
 lift¥ing bod¥y
 lift¥man
 lift¥off
@@ -133844,6 +133852,7 @@ rec¥on¥dite¥ly
 rec¥on¥dite¥ness
 re¥con¥di¥tion
 re¥con¥duct
+re¥con¥di¥tioned
 re¥con¥fer
 re¥con¥ferred
 re¥con¥fer¥ring
@@ -143560,6 +143569,7 @@ seer¥suck¥er
 see¥saw
 seethe
 seeth¥ing¥ly
+seeth¥ing
 Se¥fe¥ri¥a¥des
 Se¥fer¥is
 se¥gar
@@ -154177,6 +154187,7 @@ stra¥te¥gic
 stra¥te¥gi¥cal
 stra¥te¥gics
 strat¥e¥gist
+strat¥e¥gies
 stra¥te¥gos
 stra¥te¥gus
 strat¥e¥gy
@@ -154454,6 +154465,7 @@ strong-mind¥ed¥ness
 strong¥bark
 strong¥box
 strong¥hold
+strong¥est
 strong¥ish
 strong¥man
 strong¥ness
@@ -158164,6 +158176,7 @@ sur¥geon¥fish¥es
 sur¥geon¥less
 sur¥ger¥y
 sur¥gi¥cal
+surg¥es
 sur¥gi¥cal boot
 sur¥gi¥cal spir¥it
 sur¥gi¥cal¥ly
@@ -186843,6 +186856,7 @@ your'n
 yours
 yours tru¥ly
 your¥self
+your¥selves
 yous
 youse
 Yous¥ke¥vitch

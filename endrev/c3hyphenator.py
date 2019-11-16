@@ -89,6 +89,8 @@ def hyph_word(moby, word, lang):
         return word
 
 def hyphenate(moby, word, lang):
+    if len(word) == 0: return word
+
     if not word[0].isalpha(): return word
     
     toedit = word
@@ -170,6 +172,9 @@ def convert_lyrics(text, lang, atsign, db_filename):
 
         tok = []
         for w in line.split():
+            if all([not c.isalnum() for c in w.split()]):
+                continue
+
             if not w[-1].isalnum():
                 w_format = w[:len(w)-1]
                 endchar = w[-1]
