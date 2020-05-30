@@ -31,6 +31,13 @@ def hyphenate(word):
         appends = word[len(word)-1]
         word = word[0:len(word)-1]
 
+    # Replace macrons, should be fine most of the time.
+    word = word.replace("ā","aa")
+    word = word.replace("ē","ee")
+    word = word.replace("ī","ii")
+    word = word.replace("ō","ou")
+    word = word.replace("ū","uu")
+        
     hyph = ""
     skipindex = set([len(word)])
     for i in range(len(word)):
