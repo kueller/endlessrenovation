@@ -59,7 +59,7 @@ def load_single_wiki_db(c):
 
 
 # h aspirés stockés dans une variable
-with open(os.path.join(SYLLABES_FR_WIKTIONARY_DIR, "aspirated_h.txt")) as f:
+with open(os.path.join(SYLLABES_FR_WIKTIONARY_DIR, "aspirated_h.txt"), encoding="utf-8") as f:
     aspirated_h_list = [line.strip(u"\n") for line in f]
 
 

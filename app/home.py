@@ -6,7 +6,7 @@ from app.config import ANTLERS_LYRICS_FILE
 
 home = Blueprint("home", __name__)
 
-with open(ANTLERS_LYRICS_FILE, "r") as f:
+with open(ANTLERS_LYRICS_FILE, "r", encoding="utf-8") as f:
     lyrics = f.read().split("\n")
 
 

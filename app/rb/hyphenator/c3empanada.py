@@ -4,7 +4,7 @@ from syltippy import syllabize
 def setup_es_db(db_file: str) -> dict:
     db = {}
 
-    with open(db_file, "r") as f:
+    with open(db_file, "r", encoding="utf-8") as f:
         text = f.read()
 
     for line in text.split("\n"):
@@ -18,7 +18,7 @@ def setup_es_db(db_file: str) -> dict:
 
 # Similar to the add_word script.
 def insert_es_word(word: str, syllables: list, filename: str) -> None:
-    with open(filename, "r") as f:
+    with open(filename, "r", encoding="utf-8") as f:
         text = f.read()
     lines = text.split("\n")
     lower = 0
@@ -41,7 +41,7 @@ def insert_es_word(word: str, syllables: list, filename: str) -> None:
     else:
         lines.insert(i + 1, word.lower() + " " + "#".join(syllables).lower())
 
-    with open(filename, "w") as f:
+    with open(filename, "w", encoding="utf-8") as f:
         f.write("\n".join(lines))
 
 
