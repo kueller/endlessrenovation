@@ -13,7 +13,7 @@ with open(ANTLERS_LYRICS_FILE, "r", encoding="utf-8") as f:
 @home.route("/")
 def landing():
     lyric = random.choice(lyrics)
-    return render_template("lyric.html", lyric=lyric.encode("utf-8"))
+    return render_template("lyric.html", lyric=lyric)
 
 
 @home.route("/sort")
