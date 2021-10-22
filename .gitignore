@@ -1,0 +1,14 @@
+static/preview/*
+static/lego/*
+app/hidden/*
+templates/hidden/*
+data/cases.json
+data/users.json
+mailinfo.py
+
+local/
+.idea/
+
+*.pyc
+.env
+

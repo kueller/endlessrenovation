@@ -1,0 +1,82 @@
+#!/usr/bin/env python
+
+import os
+import io
+import sys
+
+def setup_db(db_file):
+    db = {}
+
+    with io.open(db_file, 'r', encoding=('utf-8')) as f:
+        text = f.read()
+
+    for line in text.split('\n'):
+        if line.strip() == '': continue
+        word, hyph = line.strip().split(' ')
+        db[word] = hyph
+
+    return db
+
+def insert_word(word, hyph, filename):
+    hyph_tokens = hyph.split('- ')
+    with io.open(filename, 'r', encoding='utf-8') as f:
+        text = f.read()
+    lines = text.split('\n')
+    lower = 0
+    exists = False
+    upper = len(lines)
+    i = 0
+
+    while len(lines[lower:upper]) > 1:
+        i = ((upper - lower) // 2) + lower
+        if word.lower() > lines[i].split(' ')[0].lower().strip():
+            lower = i
+        elif word.lower() == lines[i].split(' ')[0].lower().strip():
+            exists = True
+            break
+        else:
+            upper = i
+
+    if exists:
+        print("Word exists on line " + str(i+1))
+        lines[i] = word.lower() + ' ' + hyph 
+    else:
+        print("Adding new word to line " + str(i+2))
+        lines.insert(i + 1, word.lower() + ' ' + hyph)
+
+    print("Word replaced in database. Regenerating list...\n")
+
+    with io.open(filename, 'w', encoding='utf-8') as f:
+        f.write('\n'.join(lines))
+
+def main(argv):
+    if len(argv) < 3:
+        print("USAGE: fr_add_word NEW_WORD HYPHENATED_WORD")
+        print("Example: add_word.py hyphenated hy-phe-na-ted\n")
+        print("Remember to keep the hyphenated word together.\n")
+        sys.exit(1)
+
+    word = sys.argv[1].decode("utf-8").strip()
+    hyph = sys.argv[2].decode("utf-8").strip().replace('-','#')
+
+    moby = setup_db('db_fr.txt')
+
+    print("Replace French Word:")
+
+    if (word not in moby) or (word.lower() not in moby):
+        insert_word(word, hyph, "db_fr.txt")
+    else:
+        if word in moby:
+            print("Word \"%s\" was found in moby as %s.\n" % (word, moby[word]))
+        elif word.lower() in moby:
+            print("Word \"%s\" was found in moby as %s.\n" % (word, moby[word.lower()]))
+        if sys.version_info >= (3,0):
+            r = input("Replace existing word? (y/n) ")
+        else:
+            r = raw_input("Replace existing word? (y/n) ")
+
+        if r == 'y':
+            insert_word(word, hyph, "db_fr.txt")
+
+if __name__ == "__main__":
+    main(sys.argv)

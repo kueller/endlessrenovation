@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>Hyphenator 2: Judgement Day</title>
+	<meta charset="utf-8">
+    <meta property="og:title" content="Rock Band Lyric Hyphenator"/>
+    <meta property="og:description" content="Lyric hyphenator for C3."/>
+    <meta property="og:image" content="{{ url_for('static', filename='fi-re.jpg') }}"/>
+    <meta property="og:url" content="http://endlessrenovation.com"/>
+    <link rel="shortcut icon" type="image/svg" href="{{ url_for('static', filename='avocado.ico') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/rb.css') }}"/> 
+  </head>
+</head>
+
+<body class="form-style">
+    <h2>Lyric Hyphenator</h2>
+
+  <form method="POST">
+	<p>
+    Post lyrics below: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span>
+        <select name="lang">
+            <option {{ "selected" if selected == "en" else "" }} value="en">English</option>
+            <option {{ "selected" if selected == "fr" else "" }} value="fr">Français</option>
+            <option {{ "selected" if selected == "jp" else "" }} value="jp">Rōmaji</option>
+            <option {{ "selected" if selected == "es" else "" }} value="es">Español</option>
+        </select>
+    </p>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <textarea rows="10" cols="50" name="lyrics">{{ message}}</textarea>
+            {% endfor %}
+        {% else %}
+            <textarea rows="10" cols="50" name="lyrics"></textarea>
+        {% endif %}
+    {% endwith %}
+    <br><br>
+	<input type="submit" name="submit" value="Convert!">
+    <input type="checkbox" name="no-at-sign"><label>Do not prepend @ to the start of each line.</label>
+    <br><br><br>
+  </form>
+
+  <form method="POST">
+	<p>
+	  Suggest a new updated word.<br>
+        Include the word, language, and hyphenation.<br>
+	  Please only one word per submission.
+	</p>
+
+	<textarea rows="3" cols="35" name="suggest"></textarea><br><br>
+	<input type="submit" name="new_word" value="Submit."><br><br>
+
+  </form>
+</body>
