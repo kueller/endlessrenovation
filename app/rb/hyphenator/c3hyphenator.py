@@ -1,7 +1,6 @@
-import sys
 from num2words import num2words
 
-from app.rb.hyphenator import c3baguette, c3weebhyphens, c3empanada
+from app.rb.hyphenator import c3baguette, c3weebhyphens
 from app.rb.hyphenator.c3baguette import hyph_word_fr
 from app.rb.hyphenator.c3empanada import setup_es_db, hyph_word_es
 
@@ -12,7 +11,7 @@ num_langs = ["en", "fr", "es"]
 def setup_moby(moby_file):
     moby = {}
 
-    with open(moby_file, "r") as f:
+    with open(moby_file, "r", encoding="utf-8") as f:
         text = f.read()
 
     for line in text.split("\n"):
