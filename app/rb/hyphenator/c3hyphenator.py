@@ -92,7 +92,7 @@ def hyphenate(moby, filename, word, lang):
     else:
         h_list = []
         for tok in toedit.split("="):
-            h_list.append(hyph_word(moby, tok, lang))
+            h_list.append(hyph_word(moby, filename, tok, lang))
         hyphenated = "= ".join(h_list)
 
     if word.endswith("="):
