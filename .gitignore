@@ -4,6 +4,9 @@ app/hidden/*
 templates/hidden/*
 data/cases.json
 data/users.json
+data/db_es.txt
+data/mhyph3.txt
+data/mail.hash
 mailinfo.py
 
 local/
