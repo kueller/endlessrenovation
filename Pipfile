@@ -11,7 +11,7 @@ Flask-SQLAlchemy="*"
 requests="*"
 num2words="*"
 python-dotenv="*"
-nltk="*"
+nltk=">=3.6.6"
 syltippy="*"
 flask-expects-json="*"
 
