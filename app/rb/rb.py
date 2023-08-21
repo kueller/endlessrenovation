@@ -29,7 +29,7 @@ from utils.url import is_safe_url
 
 rb = Blueprint("rb", __name__, template_folder="templates/rb")
 
-db_list = {
+DB_LIST = {
     "en": HYPH_DB_EN,
     "fr": HYPH_DB_FR,
     "jp": HYPH_DB_JP,
@@ -99,7 +99,7 @@ def hyphenate(lang=None):
             text = request.form["lyrics"]
             use_at = "no-at-sign" not in request.form
             lang = request.form["lang"]
-            formatted = convert_lyrics(text, lang, use_at, db_list[lang])
+            formatted = convert_lyrics(text, lang, use_at, DB_LIST[lang])
             flash(formatted)
             return redirect(url_for("rb.hyphenate", lang=lang))
         elif "new_word" in request.form:

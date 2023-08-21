@@ -60,7 +60,7 @@ def syllabizer(source, mode="default", language="fr"):
     for pos_token, token in enumerate(tokenized_source):
         try:
             next_token = tokenized_source[pos_token + 1]
-        except (IndexError):
+        except IndexError:
             next_token = "$"
         token_api = "$"
 
@@ -146,11 +146,11 @@ def syllabizer(source, mode="default", language="fr"):
                     for pos_phoneme, phoneme in enumerate(api):
                         try:
                             prev_phoneme_a = api[pos_phoneme - 1]
-                        except (IndexError):
+                        except IndexError:
                             prev_phoneme_a = "$"
                         try:
                             next_phoneme_a = api[pos_phoneme + 1]
-                        except (IndexError):
+                        except IndexError:
                             next_phoneme_a = "$"
                         if (
                             prev_phoneme_a in consonantal_sounds
@@ -197,7 +197,7 @@ def syllabizer(source, mode="default", language="fr"):
                         ):
                             try:
                                 next_phoneme2_b = api[pos_phoneme + 2]
-                            except (IndexError):
+                            except IndexError:
                                 next_phoneme2_b = "$"
                             if (
                                 next_phoneme_b == "a"
@@ -236,19 +236,19 @@ def syllabe_rules(token):
         # gestion des indexErrors
         try:
             previous_token = token[pos_letter - 1]
-        except (IndexError):
+        except IndexError:
             previous_token = "$"
         try:
             previous_token2 = token[pos_letter - 2]
-        except (IndexError):
+        except IndexError:
             previous_token2 = "$"
         try:
             next_token = token[pos_letter + 1]
-        except (IndexError):
+        except IndexError:
             next_token = "$"
         try:
             next_token2 = token[pos_letter + 2]
-        except (IndexError):
+        except IndexError:
             next_token2 = "$"
         if pos_letter - 1 == -1:
             previous_token = "$"

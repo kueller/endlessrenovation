@@ -5,6 +5,7 @@ templates/hidden/*
 data/cases.json
 data/users.json
 data/db_es.txt
+data/db_fr.txt
 data/mhyph3.txt
 data/mail.hash
 mailinfo.py

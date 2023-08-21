@@ -20,7 +20,7 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = "login"
 
-from api import sylvia_api
+from api import sylvia_api, zelda_api
 
 from app.hidden.hidden import hidden_pages
 from app.home import home
@@ -30,6 +30,7 @@ app.register_blueprint(home)
 app.register_blueprint(hidden_pages)
 app.register_blueprint(rb, url_prefix="/rb")
 app.register_blueprint(sylvia_api, url_prefix="/sylvia")
+app.register_blueprint(zelda_api, url_prefix="/zelda")
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")

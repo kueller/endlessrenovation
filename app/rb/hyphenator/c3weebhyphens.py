@@ -39,7 +39,6 @@ def hyphenate(word):
     hyph = ""
     skipindex = set([len(word)])
     for i in range(len(word)):
-
         if i in skipindex:
             continue
 

@@ -5,7 +5,7 @@ from app.rb.hyphenator.c3baguette import hyph_word_fr
 from app.rb.hyphenator.c3empanada import setup_es_db, hyph_word_es
 
 BAD_CHARS = [".", ",", "(", ")", "[", "]", '"']
-num_langs = ["en", "fr", "es"]
+NUM_LANGS = ["en", "fr", "es"]  # languages that support number replacement
 
 
 def setup_moby(moby_file):
@@ -122,7 +122,7 @@ def convert_lyrics(text, lang, atsign, db_filename):
                 tok.append(w)
                 continue
 
-            if lang not in num_langs:
+            if lang not in NUM_LANGS:
                 tok.append(w)
                 continue
 
