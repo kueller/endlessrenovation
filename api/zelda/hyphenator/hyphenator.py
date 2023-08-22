@@ -9,7 +9,7 @@ from app.rb.hyphenator.c3hyphenator import setup_db
 from app.rb.rb import DB_LIST
 from utils.validation import api_validate
 
-hyphenator = Blueprint("hyph", __name__, url_prefix="hyph")
+hyphenator = Blueprint("hyph", __name__, url_prefix="/hyph")
 
 
 DATABASED_LANGUAGES = ("en", "fr", "es")
