@@ -2,6 +2,7 @@ from flask import Blueprint, request, abort, jsonify
 from flask_expects_json import expects_json
 
 from api.zelda.hyphenator.en_insert_word import load_en_db_lines, en_insert_word
+from api.zelda.hyphenator.es_insert_word import load_es_db_lines, es_insert_word
 from api.zelda.hyphenator.fr_insert_word import load_fr_db_lines, fr_insert_word
 from api.zelda.hyphenator.request_validation import HYPHENATOR_REQUEST_VALIDATION
 from app.config import API_KEY_ADMIN
@@ -20,6 +21,8 @@ def _load_db_lines(lang):
         return load_en_db_lines()
     elif lang == "fr":
         return load_fr_db_lines()
+    elif lang == "es":
+        return load_es_db_lines()
 
 
 def _insert_word_by_lang(word: str, hyphenation: str, lang: str, overwrite: bool):
@@ -44,6 +47,8 @@ def _insert_word_by_lang(word: str, hyphenation: str, lang: str, overwrite: bool
             line = en_insert_word(word, hyphenation, db_lines)
         elif lang == "fr":
             line = fr_insert_word(word, hyphenation, db_lines)
+        elif lang == "es":
+            line = es_insert_word(word, hyphenation, db_lines)
         result = "success"
     except Exception as e:
         result = str(e)
