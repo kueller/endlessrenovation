@@ -103,10 +103,11 @@ def hyphenate(lang=None):
             flash(formatted)
             return redirect(url_for("rb.hyphenate", lang=lang))
         elif "new_word" in request.form:
-            subject = "NEW WORD SUBMISSION - Lyric Hyphenator"
-            body = "Suggestion:\n" + request.form["suggest"]
-            ermail.send("self", subject, body)
-            return redirect(url_for("rb.hyphenate", lang=None))
+            if request.form["suggest"].strip() != "":
+                subject = "NEW WORD SUBMISSION - Lyric Hyphenator"
+                body = "Suggestion:\n" + request.form["suggest"]
+                ermail.send("self", subject, body)
+            return redirect(url_for("rb.hyphenate", lang=lang))
 
     return render_template("rb/hyphenator.html", selected=lang)
 
