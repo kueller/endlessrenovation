@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>The Simulations</title>
+</head>
+
+<style>
+    .election {
+        color: #383838;
+        font-family: sans-serif;
+        margin-top: 30px;
+        margin-left: 50px;
+        font-size: 40px;
+    }
+</style>
+
+<body>
+    <div class="election">
+        <h3>Simulation #{{ data.format }}</h3>
+        <p>Winner: <b>{{ data.winner }}</b></p>
+        {% if data.arkansas == true %}
+            <p>Special case: <a href="https://x.com/MNateShyamalan/status/1853808089079627907"><b>Mega Arkansas</b></a></p>
+        {% endif %}
+    </div>
+</body>
+
+</html>

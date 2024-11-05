@@ -24,3 +24,23 @@ def antlers_sort():
 @home.route("/lego")
 def lego():
     return render_template("lego.html")
+
+
+@home.route("/election")
+def election():
+    caseno = random.randint(1, 80000 + 1)
+    if caseno == 80000:
+        winner = "Jeb!"
+    elif caseno % 2 == 0:
+        winner = "Kamala Harris"
+    else:
+        winner = "Donald Trump"
+
+    data = {
+        "id": caseno,
+        "format": f"{caseno:,}",
+        "winner": winner,
+        "arkansas": random.randint(0, 100 + 1) == 0,
+    }
+
+    return render_template("election.html", data=data)
