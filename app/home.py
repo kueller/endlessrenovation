@@ -29,9 +29,11 @@ def lego():
 @home.route("/election")
 def election():
     caseno = random.randint(1, 80000 + 1)
+    random.seed(caseno)
+    winner = random.randint(0, 1)
     if caseno == 80000:
         winner = "Jeb!"
-    elif caseno % 2 == 0:
+    elif winner == 0:
         winner = "Kamala Harris"
     else:
         winner = "Donald Trump"
